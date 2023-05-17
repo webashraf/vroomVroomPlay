@@ -1,21 +1,33 @@
 import React from "react";
+import Lottie from "lottie-react";
+import carAnimation1 from "../../../../public/carAnimation1.json";
+import carAnimation2 from "../../../../public/carAnimation2.json";
 
 const Banner = () => {
   return (
     <div>
       <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src="https://cdn.pixabay.com/photo/2015/10/29/14/39/web-1012469_1280.jpg"
+        <div id="slide1" className="carousel-item relative w-full h-[600px]">
+
+        <img
+            src="https://i.ibb.co/w6Z4drc/pexels-photo-1194420.jpg"
             className="w-full"
           />
-
-
-          <div className="content-site absolute left-0 right-0 mx-auto w-full">
-            <h1 className="text-6xl">Hello Bangladesh</h1>
+          <div className="content-site absolute mt-auto w-full px-20 flex items-center justify-between h-full bg-[#10101095] ">
+            <div className="text-white w-1/2 my-auto z-10">
+              <h1 className="text-6xl mb-3 font-serif">
+              VroomVroomPlay: Fueling Imagination with Exhilarating Car Toys!
+              </h1>
+              <p className="">
+              VroomVroomPlay: Where Fun and Adventure Collide! Discover our exhilarating collection of car toys that fuel imagination and create lasting memories. From speedy racers to rugged off-roaders, each toy is designed to deliver endless excitement. Unleash the thrill of play and let their imaginations soar with VroomVroomPlay!
+              </p>
+            </div>
+            <div className="w-[40%]">
+              <Lottie animationData={carAnimation2} loop={true} />
+            </div>
           </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide4" className="btn btn-circle">
+            <a href="#slide3" className="btn btn-circle">
               ❮
             </a>
             <a href="#slide2" className="btn btn-circle">
@@ -23,11 +35,25 @@ const Banner = () => {
             </a>
           </div>
         </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src="https://thumbs.dreamstime.com/b/modern-material-design-color-paper-composition-abstract-banner-background-175596102.jpg"
+        <div id="slide2" className="carousel-item relative w-full h-[600px]">
+
+                    <img
+            src="https://i.ibb.co/rk3VJ91/pexels-photo-1702624.jpg"
             className="w-full"
           />
+                    <div className="content-site absolute mt-auto w-full px-20 flex items-center justify-between h-full bg-[#10101095] ">
+            <div className="text-white w-1/2 my-auto z-10">
+              <h1 className="text-6xl mb-3 font-serif">
+              Emotion in Motion: Exploring Baby's Joy with Toy Cars!
+              </h1>
+              <p className="">
+              Discover Joyful Expressions: Baby's Delight with Toy Cars! Let their imaginations race with excitement as they explore the world of toy cars. Experience the pure delight and heartwarming emotions that come alive with each playful interaction. Start their journey of joy today!
+              </p>
+            </div>
+            <div className="w-[40%]">
+              <Lottie animationData={carAnimation1} loop={true} />
+            </div>
+          </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" className="btn btn-circle">
               ❮
@@ -37,27 +63,32 @@ const Banner = () => {
             </a>
           </div>
         </div>
-        <div id="slide3" className="carousel-item relative w-full">
+        <div id="slide3" className="carousel-item relative w-full h-[600px]">
           <img
-            src="https://t3.ftcdn.net/jpg/05/15/16/12/360_F_515161254_2cp9OEcNqERA2KHp2jqaFfvF7Ze5oO4I.jpg"
+            src="https://i.ibb.co/hWbY0s1/pexels-photo-1266808.jpg"
             className="w-full"
           />
+                    <div className="content-site absolute mt-auto w-full px-20 flex items-center justify-between h-full bg-[#10101095] ">
+            <div className="text-white w-1/2 my-auto z-10">
+              <h1 className="text-6xl mb-3 font-serif">
+                Rev Up the Fun: Explore Our World of Car Toys!
+              </h1>
+              <p className="">
+                Unleash the Fun: Discover an Exciting Range of Car Toys! Fuel
+                your child's imagination with our hand-picked selection of
+                captivating car toys. From speedy racers to rugged off-roaders,
+                each toy is built to deliver endless hours of entertainment. Let
+                their imagination hit the accelerator as they embark on
+                thrilling adventures and exciting races. Start the adventure
+                today and watch their joy ignite!
+              </p>
+            </div>
+            <div className="w-[40%]">
+                <img src="https://i.ibb.co/L5zbHTG/boy.png" alt="" />
+            </div>
+          </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide4" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full">
-          <img
-            src="https://t4.ftcdn.net/jpg/04/71/08/21/360_F_471082199_GqGvsX5BPH03nC2bZqFbZiQHckXlINxn.jpg"
-            className="w-full"
-          />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" className="btn btn-circle">
               ❮
             </a>
             <a href="#slide1" className="btn btn-circle">
