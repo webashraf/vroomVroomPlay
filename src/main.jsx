@@ -5,8 +5,10 @@ import './index.css'
 import routes from './routes/routes.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+<div style={{maxWidth: "1280px"}} className='mx-auto w-full'>
+<React.StrictMode>
     <RouterProvider router={routes}>
     </RouterProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
+</div>,
 )
