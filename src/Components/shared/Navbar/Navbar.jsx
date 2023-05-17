@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContextProvider } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const {user} = useContext(ContextProvider);
+
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -56,7 +60,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn btn-ghost normal-case text-xl">{user}</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
