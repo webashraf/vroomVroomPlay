@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ContextProvider } from "../../../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { user } = useContext(ContextProvider);
@@ -7,10 +8,11 @@ const Navbar = () => {
   const menu = (
     <>
       <li>Home</li>
-      <li>All Toy</li>
-      <li>My Toy</li>
-      <li>Add Toy</li>
+      <li>All toy</li>
+      <li>My toy</li>
+      <li>Add a toy</li>
       <li>Blogs</li>
+      <Link to={"/login"}>Login</Link>
     </>
   );
   return (
@@ -36,7 +38,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 gap-6 font-semibold "
             >
               {menu}
             </ul>
@@ -46,7 +48,7 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{menu}</ul>
+          <ul className="menu menu-horizontal px-1 gap-6 font-semibold">{menu}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Get started</a>

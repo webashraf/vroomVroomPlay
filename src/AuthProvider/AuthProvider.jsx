@@ -10,6 +10,9 @@ const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState("Ali Ashraf");
+
+
+    
     
 
 
