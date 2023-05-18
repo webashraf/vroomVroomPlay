@@ -7,12 +7,12 @@ console.log(".ENV FILE",import.meta.env.VITE_APIKEY);
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAh7MOBUeGmht3YtmgicCv6uCsFm7kDSfE",
-  authDomain: "vroomvroomplay.firebaseapp.com",
-  projectId: "vroomvroomplay",
-  storageBucket: "vroomvroomplay.appspot.com",
-  messagingSenderId: "847343978288",
-  appId: "1:847343978288:web:335b7b0118fa352e456af5"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
