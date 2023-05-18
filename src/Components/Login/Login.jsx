@@ -6,8 +6,29 @@ import { ContextProvider } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
     const [view, setView] = useState(false);
-    const {signUpWithGoogle} =
+    const [errorM, setErrorM] = useState(null);
+
+    const {signUpWithGoogle, signInWithEmailPassword} =
     useContext(ContextProvider);
+
+    const handleLoginWithEmailAndPassword = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+    
+        signInWithEmailPassword(email, password)
+          .then((result) => {
+            console.log(result);
+            setErrorM(null);
+            form.reset();
+          })
+          .catch((error) => {
+            setErrorM("Email or Password dosen't match!!!")
+            console.log(error);
+          });
+          form.reset();
+      };
 
     const googleSignIn = () => {
         signUpWithGoogle()
@@ -29,13 +50,17 @@ const Login = () => {
             </h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-            <form className="card-body pb-4">
+            <form onSubmit={handleLoginWithEmailAndPassword} className="card-body pb-4">
+            <div className="text-red-500 font-bold m-4 p-3 rounded-lg">
+              {errorM}
+            </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                 />
@@ -46,6 +71,7 @@ const Login = () => {
                 </label>
                 <input
                   type={view ? "text" : "password"}
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                 />

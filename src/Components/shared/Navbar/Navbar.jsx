@@ -3,7 +3,13 @@ import { ContextProvider } from "../../../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { user } = useContext(ContextProvider);
+  const { user, handleSignOut } = useContext(ContextProvider);
+
+  const SignOutUser = () => {
+    handleSignOut()
+    .then(result => console.log(result))
+    .catch(error => console.log(error))
+  }
 
   console.log(user);
   const menu = (
@@ -14,6 +20,7 @@ const Navbar = () => {
       <li>Add a toy</li>
       <li>Blogs</li>
       <Link to={"/login"}>Login</Link>
+      <li onClick={SignOutUser}>Log Out</li>
     </>
   );
   return (
