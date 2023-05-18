@@ -1,4 +1,10 @@
+import CreatableSelect from "react-select/creatable";
+import { useState } from "react";
+
 const AddAToy = () => {
+  const [subCategoriy, setSubCategoriy] = useState(null);
+  const [categoriy, setCategoriy] = useState(null);
+
   const handleAddToy = (event) => {
     event.preventDefault();
 
@@ -6,25 +12,43 @@ const AddAToy = () => {
     const photoUrl = form.photoUrl.value;
     const name = form.name.value;
     const sallerName = form.sallerName.value;
-    const categoriy = form.categoriy.value;
-    const subCategoriy = form.subCategoriy.value;
+    // const categoriy = form.categoriy.value;
+    // const subCategoriy = form.subCategoriy.value;
     const price = form.price.value;
     const ratting = form.ratting.value;
     const availableQuantity = form.availableQuantity.value;
     const description = form.description.value;
+    const select = form.select.value;
     const toy = {
       photoUrl,
       name,
       sallerName,
-      categoriy,
-      subCategoriy,
       price,
       ratting,
       availableQuantity,
       description,
+      subCategoriy,
+      categoriy,
     };
-    console.log(toy);
+    console.log(categoriy, subCategoriy);
   };
+
+  const carCategoriy = [
+    { value: "Remote Control", label: "Remote Control" },
+    { value: "Police Car", label: "Police Car" },
+    { value: "Sports Car", label: "Sports Car" },
+  ];
+  const carSubCategoriy = [
+    { value: "High-Teach Racer", label: "High-Teach Racer" },
+    { value: "Off-Road Warriors", label: "Off-Road Warriors" },
+    { value: "Speed Demons", label: "Speed Demons" },
+    { value: "Crime Fighters", label: "Crime Fighters" },
+    { value: "Traffic Controllers", label: "Traffic Controllers" },
+    { value: "Special Force", label: "Special Force" },
+    { value: "Speed Titans", label: "Speed Titans" },
+    { value: "Supercar Legends", label: "Supercar Legends" },
+    { value: "Luxury Cruisers", label: "Luxury Cruisers" },
+  ];
 
   return (
     <div>
@@ -73,12 +97,13 @@ const AddAToy = () => {
                   <label className="label">
                     <span className="label-text">Categoriy</span>
                   </label>
-                  <input
-                    type="text"
-                    name="categoriy"
-                    placeholder="Categoriy"
-                    className="input input-bordered"
-                  />
+                  <CreatableSelect
+                className="w-full"
+                defaultValue={setCategoriy}
+                onChange={setCategoriy}
+                options={carCategoriy}
+                isMulti
+              />
                 </div>
               </div>
               <div className="flex gap-6">
@@ -86,11 +111,11 @@ const AddAToy = () => {
                   <label className="label">
                     <span className="label-text">Sub Categoriy</span>
                   </label>
-                  <input
-                    type="text"
-                    name="subCategoriy"
-                    placeholder="Sub Categoriy"
-                    className="input input-bordered"
+                  <CreatableSelect
+                    className=""
+                    defaultValue={setSubCategoriy}
+                    onChange={setSubCategoriy}
+                    options={carSubCategoriy}
                   />
                 </div>
                 <div className="form-control">
@@ -143,6 +168,7 @@ const AddAToy = () => {
                 ></textarea>
               </div>
 
+
               <div className="form-control mt-6">
                 <input
                   className="btn btn-primary textarea"
@@ -155,6 +181,7 @@ const AddAToy = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };
