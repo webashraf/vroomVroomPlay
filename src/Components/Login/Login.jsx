@@ -1,14 +1,26 @@
+import { useContext, useState } from "react";
+import { AiFillEye, AiFillEyeInvisible, AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { AiFillEye, AiFillEyeInvisible, AiOutlineGithub, AiOutlineGoogle } from "react-icons/ai";
-import { useState } from "react";
+import { ContextProvider } from "../../AuthProvider/AuthProvider";
 
 
 const Login = () => {
     const [view, setView] = useState(false);
-    
+    const {signUpWithGoogle} =
+    useContext(ContextProvider);
+
+    const googleSignIn = () => {
+        signUpWithGoogle()
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
 
   return (
-    <div>
+    <>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left lg:w-1/2 px-10">
@@ -20,7 +32,7 @@ const Login = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form className="card-body pb-4">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -59,24 +71,25 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
               <p className="text-center">
-                Are you new to here
-                <Link className="" to={"/register"}>
+                Are you new to here &nbsp;
+                <Link className="text-blue-800 font-bold" to={"/register"}>
                   register now!!
                 </Link>{" "}
               </p>
             </form>
-            <div className="flex justify-between mt-3 gap-6 px-6 pb-4">
+            <div className="flex justify-between gap-6 px-6 pb-4">
               <button
-                className="btn flex-grow"
+              onClick={googleSignIn}
+                className="btn flex-grow bg-blue-950"
               >
-                <AiOutlineGoogle className="text-xl"></AiOutlineGoogle> &nbsp;
+                <AiOutlineGoogle className="text-2xl text-orange-400"></AiOutlineGoogle> &nbsp;
                 GOOGLE
               </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
