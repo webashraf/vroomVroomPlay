@@ -1,0 +1,4 @@
+.userProPic:hover ~ .userNameAuth {
+  display: block;
+  transition: 1s ease-in-out;
+}

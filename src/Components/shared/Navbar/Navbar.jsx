@@ -1,26 +1,37 @@
 import { useContext } from "react";
 import { ContextProvider } from "../../../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import "./Navba.css";
 
 const Navbar = () => {
-  const { user, handleSignOut } = useContext(ContextProvider);
-
+  const { user, handleSignOut, loader } = useContext(ContextProvider);
+  if (loader) {
+    return (
+      <div className="flex justify-center items-center h-screen flex-col gap-10">
+        <h2 className="text-3xl text-blue-950 font-mono">Loading....</h2>
+        <progress className="progress w-56 text-center"></progress>
+      </div>
+    );
+  }
   const SignOutUser = () => {
     handleSignOut()
-    .then(result => console.log(result))
-    .catch(error => console.log(error))
-  }
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
+  };
 
   console.log(user);
   const menu = (
     <>
       <Link to={"/"}>Home</Link>
       <li>All toy</li>
-      <li>My toy</li>
-      <li>Add a toy</li>
       <li>Blogs</li>
-      <Link to={"/login"}>Login</Link>
-      <li onClick={SignOutUser}>Log Out</li>
+      {user && (
+        <>
+          <li>My toy</li>
+          <li>Add a toy</li>
+          <li onClick={SignOutUser}>Log Out</li>
+        </>
+      )}
     </>
   );
   return (
@@ -52,18 +63,33 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl">
-          VroomVroomPlay.com
+            VroomVroomPlay.com
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-6 font-semibold">{menu}</ul>
+          <ul className="menu menu-horizontal px-1 gap-6 font-semibold">
+            {menu}
+          </ul>
         </div>
-        <div className="navbar-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="rounded-full w-10 overflow-hidden h-10">
-            <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-          </div>
-        </label>
+        <div className="navbar-end relative">
+          {user ? (
+            <label
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar userProPic"
+            >
+              <div className="rounded-full w-10 overflow-hidden h-10 ">
+                <img src={!loader && user?.photoURL} alt="" />
+              </div>
+            </label>
+          ) : (
+            <Link
+              className="btn bg-blue-950 text-white"
+              to={"/login"}
+            >
+              Login
+            </Link>
+          )}
+          <h2 className="userNameAuth absolute top-10 font-bold text-blue-900 bg-white p-5 shadow-2xl rounded-xl z-10 -right-1 hidden">{user?.displayName}</h2>
         </div>
       </div>
     </div>
