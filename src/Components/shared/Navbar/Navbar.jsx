@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const { user } = useContext(ContextProvider);
 
+  console.log(user);
   const menu = (
     <>
       <Link to={"/"}>Home</Link>
@@ -51,7 +52,11 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-6 font-semibold">{menu}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="rounded-full w-10 overflow-hidden h-10">
+            <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+          </div>
+        </label>
         </div>
       </div>
     </div>

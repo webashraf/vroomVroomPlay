@@ -1,3 +1,4 @@
+import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -5,7 +6,47 @@ import { ContextProvider } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
   const [view, setView] = useState(false);
-  const { signUpWithGoogle } = useContext(ContextProvider);
+  const [errorM, setErrorM] = useState(null);
+
+  const { signUpWithGoogle, registerWithEmailAndpassword } =
+    useContext(ContextProvider);
+
+  const signUpWithEmailAndPassword = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoUrl = form.userPhoto.value;
+    const userName = form.name.value;
+
+    console.log(email, password, photoUrl, userName);
+
+    registerWithEmailAndpassword(email, password)
+      .then((result) => {
+        setErrorM(null);
+        updateUserProfile(result.user, userName, photoUrl);
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.message.includes("weak-password")) {
+          setErrorM("Password must be longer than 6 characters!!");
+          return;
+        } else {
+          setErrorM(error.message);
+        }
+      });
+
+    const updateUserProfile = (user, name, photo) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo,
+      })
+        .then((result) => console.log(result))
+        .catch((error) => console.log(error));
+      form.reset();
+    };
+  };
 
   const googleSignIn = () => {
     signUpWithGoogle()
@@ -29,7 +70,14 @@ const Register = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-          <form className="card-body pb-2">
+          <form
+            onSubmit={signUpWithEmailAndPassword}
+            className="card-body pb-2"
+          >
+            <div className="text-red-500 font-bold m-4 p-3 rounded-lg">
+              {errorM}
+            </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -99,7 +147,11 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn mb-2 bg-blue-950">Sign Up</button>
+              <input
+                className="btn mb-2 bg-blue-950"
+                type="submit"
+                value="Register"
+              />
               <p className="text-center">
                 Allready have an account ?{" "}
                 <Link className="text-blue-800 font-bold" to={"/login"}>
