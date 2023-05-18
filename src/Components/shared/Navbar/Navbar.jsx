@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const menu = (
     <>
-      <li>Home</li>
+      <Link to={"/"}>Home</Link>
       <li>All toy</li>
       <li>My toy</li>
       <li>Add a toy</li>

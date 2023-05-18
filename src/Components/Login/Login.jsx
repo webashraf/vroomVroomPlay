@@ -25,11 +25,8 @@ const Login = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left lg:w-1/2 px-10">
             <h1 className="text-5xl font-bold">
-           Join VroomVroomPlay today!
+           Login VroomVroomPlay now!
             </h1>
-            <p className="py-6">
-            roomVroomPlay: Ignite Your Gaming Passion! Immerse, Compete, Conquer. Join our vibrant community and experience gaming like never before. Unleash the thrill today!
-            </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
             <form className="card-body pb-4">
@@ -68,7 +65,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-blue-950">Login</button>
               </div>
               <p className="text-center">
                 Are you new to here &nbsp;
@@ -82,7 +79,7 @@ const Login = () => {
               onClick={googleSignIn}
                 className="btn flex-grow bg-blue-950"
               >
-                <AiOutlineGoogle className="text-2xl text-orange-400"></AiOutlineGoogle> &nbsp;
+                <AiOutlineGoogle className="text-xl text-orange-500"></AiOutlineGoogle> &nbsp;
                 GOOGLE
               </button>
             </div>
