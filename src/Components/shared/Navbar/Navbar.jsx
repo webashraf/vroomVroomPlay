@@ -27,7 +27,7 @@ const Navbar = () => {
       <li>Blogs</li>
       {user && (
         <>
-          <li>My toy</li>
+          <Link to={"/mytoy"}>My toy</Link>
           <Link to={"/addtoy"}>Add a toy</Link>
           <li onClick={SignOutUser}>Log Out</li>
         </>

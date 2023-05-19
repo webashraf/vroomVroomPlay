@@ -1,7 +1,6 @@
-import React from 'react';
 import Banner from '../Banner/Banner';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
-import CarGallery from '../../CarGallery/CarGallery';
+import CarGallery from '../CarGallery/CarGallery';
 
 const Home = () => {
     return (

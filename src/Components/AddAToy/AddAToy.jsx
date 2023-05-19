@@ -1,9 +1,13 @@
 import CreatableSelect from "react-select/creatable";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ContextProvider } from "../../AuthProvider/AuthProvider";
 
 const AddAToy = () => {
-  const [subCategoriy, setSubCategoriy] = useState(null);
-  const [categoriy, setCategoriy] = useState(null);
+  const [subCategory, setSubCategory] = useState(null);
+  const [category, setCategory] = useState(null);
+  const { user } = useContext(ContextProvider);
+
+  console.log(user);
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -12,25 +16,34 @@ const AddAToy = () => {
     const photoUrl = form.photoUrl.value;
     const name = form.name.value;
     const sallerName = form.sallerName.value;
-    // const categoriy = form.categoriy.value;
-    // const subCategoriy = form.subCategoriy.value;
+    // const categoriy = ;
+    const sub_category = subCategory.value;
     const price = form.price.value;
-    const ratting = form.ratting.value;
+    const ratings = form.rating.value;
     const availableQuantity = form.availableQuantity.value;
     const description = form.description.value;
-    const select = form.select.value;
+    // const select = form.select.value;
     const toy = {
       photoUrl,
       name,
       sallerName,
       price,
-      ratting,
+      ratings,
       availableQuantity,
       description,
-      subCategoriy,
-      categoriy,
+      saller_email: user.email,
     };
-    console.log(categoriy, subCategoriy);
+    console.log(toy);
+
+    fetch(`http://localhost:5000/addcar`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(toy),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   const carCategoriy = [
@@ -39,23 +52,25 @@ const AddAToy = () => {
     { value: "Sports Car", label: "Sports Car" },
   ];
   const carSubCategoriy = [
-    { value: "High-Teach Racer", label: "High-Teach Racer" },
-    { value: "Off-Road Warriors", label: "Off-Road Warriors" },
-    { value: "Speed Demons", label: "Speed Demons" },
-    { value: "Crime Fighters", label: "Crime Fighters" },
-    { value: "Traffic Controllers", label: "Traffic Controllers" },
-    { value: "Special Force", label: "Special Force" },
-    { value: "Speed Titans", label: "Speed Titans" },
-    { value: "Supercar Legends", label: "Supercar Legends" },
-    { value: "Luxury Cruisers", label: "Luxury Cruisers" },
+    { value: "High_Teach_Racer", label: "High-Teach Racer" },
+    { value: "Off-Road_Warriors", label: "Off-Road Warriors" },
+    { value: "Speed_Demons", label: "Speed Demons" },
+    { value: "Crime_Fighters", label: "Crime Fighters" },
+    { value: "Traffic_Controllers", label: "Traffic Controllers" },
+    { value: "Special_Force", label: "Special Force" },
+    { value: "Speed_Titans", label: "Speed Titans" },
+    { value: "Supercar_Legends", label: "Supercar Legends" },
+    { value: "Luxury_Cruisers", label: "Luxury Cruisers" },
   ];
 
   return (
-    <div>
-      <h1 className="text-7xl">ADD A toy page</h1>
-      <div className="hero min-h-screen bg-base-200">
+    <div className="py-10">
+      <div className="hero min-h-screen bg-base-200 pb-10">
         <div className="">
-          <div className="bg-white">
+          <h1 className="text-5xl py-10 text-center font-mono uppercase">
+            ADD A toy
+          </h1>
+          <div className="bg-white rounded-lg shadow-2xl">
             <form onSubmit={handleAddToy} className="card-body">
               <div className="flex gap-6">
                 <div className="form-control">
@@ -65,6 +80,7 @@ const AddAToy = () => {
                   <input
                     type="text"
                     name="photoUrl"
+                    required
                     placeholder="Photo Url"
                     className="input input-bordered"
                   />
@@ -76,6 +92,7 @@ const AddAToy = () => {
                   <input
                     type="text"
                     name="name"
+                    required
                     placeholder="Name"
                     className="input input-bordered"
                   />
@@ -89,6 +106,7 @@ const AddAToy = () => {
                   <input
                     type="text"
                     name="sallerName"
+                    defaultValue={user?.displayName}
                     placeholder="Saller Name"
                     className="input input-bordered"
                   />
@@ -98,12 +116,14 @@ const AddAToy = () => {
                     <span className="label-text">Categoriy</span>
                   </label>
                   <CreatableSelect
-                className="w-full"
-                defaultValue={setCategoriy}
-                onChange={setCategoriy}
-                options={carCategoriy}
-                isMulti
-              />
+                    name="category"
+                    required
+                    className="w-full"
+                    defaultValue={setCategory}
+                    onChange={setCategory}
+                    options={carCategoriy}
+                    isMulti
+                  />
                 </div>
               </div>
               <div className="flex gap-6">
@@ -113,8 +133,9 @@ const AddAToy = () => {
                   </label>
                   <CreatableSelect
                     className=""
-                    defaultValue={setSubCategoriy}
-                    onChange={setSubCategoriy}
+                    required
+                    defaultValue={setSubCategory}
+                    onChange={setSubCategory}
                     options={carSubCategoriy}
                   />
                 </div>
@@ -133,12 +154,12 @@ const AddAToy = () => {
               <div className="flex gap-6">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Rattings</span>
+                    <span className="label-text">Ratings</span>
                   </label>
                   <input
                     type="text"
-                    name="ratting"
-                    placeholder="Rattings"
+                    name="rating"
+                    placeholder="Ratings"
                     className="input input-bordered"
                   />
                 </div>
@@ -149,6 +170,7 @@ const AddAToy = () => {
                   <input
                     type="text"
                     name="availableQuantity"
+                    defaultValue={0}
                     placeholder="Available Quantity"
                     className="input input-bordered"
                   />
@@ -168,7 +190,6 @@ const AddAToy = () => {
                 ></textarea>
               </div>
 
-
               <div className="form-control mt-6">
                 <input
                   className="btn btn-primary textarea"
@@ -181,7 +202,6 @@ const AddAToy = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
