@@ -1,0 +1,4 @@
+.lg-react-element.custom-class-name {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

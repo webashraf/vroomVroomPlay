@@ -1,133 +1,70 @@
-import { Gallery } from "react-grid-gallery";
+import LightGallery from "lightgallery/react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import "./CarGallery.css"
+// import styles
+import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lightgallery.css";
+
+// If you want you can use SCSS instead of css
+import "lightgallery/scss/lg-zoom.scss";
+import "lightgallery/scss/lightgallery.scss";
+
+// import plugins if you need
+import lgZoom from "lightgallery/plugins/zoom";
+
+// Plugins
 
 const CarGallery = () => {
-    const images = [
-        {
-           src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-           width: 320,
-           height: 174,
-           isSelected: true,
-           caption: "After Rain (Jeshu John - designerspics.com)",
-        },
-        {
-           src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-           width: 320,
-           height: 212,
-           tags: [
-              { value: "Ocean", title: "Ocean" },
-              { value: "People", title: "People" },
-           ],
-           alt: "Boats (Jeshu John - designerspics.com)",
-        },
-      
-        {
-           src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-           width: 320,
-           height: 212,
-        },
-        {
-           src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-           width: 320,
-           height: 212,
-           tags: [
-              { value: "Ocean", title: "Ocean" },
-              { value: "People", title: "People" },
-           ],
-           alt: "Boats (Jeshu John - designerspics.com)",
-        },
-      
-        {
-           src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-           width: 320,
-           height: 212,
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            width: 320,
-            height: 212,
-            tags: [
-               { value: "Ocean", title: "Ocean" },
-               { value: "People", title: "People" },
-            ],
-            alt: "Boats (Jeshu John - designerspics.com)",
-         },
-       
-         {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            width: 320,
-            height: 212,
-         },
-         {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            width: 320,
-            height: 212,
-            tags: [
-               { value: "Ocean", title: "Ocean" },
-               { value: "People", title: "People" },
-            ],
-            alt: "Boats (Jeshu John - designerspics.com)",
-         },
-       
-         {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            width: 320,
-            height: 212,
-         },
-         {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            width: 320,
-            height: 212,
-            tags: [
-               { value: "Ocean", title: "Ocean" },
-               { value: "People", title: "People" },
-            ],
-            alt: "Boats (Jeshu John - designerspics.com)",
-         },
-       
-         {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            width: 320,
-            height: 212,
-         },
-         {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            width: 320,
-            height: 212,
-            tags: [
-               { value: "Ocean", title: "Ocean" },
-               { value: "People", title: "People" },
-            ],
-            alt: "Boats (Jeshu John - designerspics.com)",
-         },
-       
-         {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            width: 320,
-            height: 212,
-         },
-         {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            width: 320,
-            height: 212,
-            tags: [
-               { value: "Ocean", title: "Ocean" },
-               { value: "People", title: "People" },
-            ],
-            alt: "Boats (Jeshu John - designerspics.com)",
-         },
-       
-         {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            width: 320,
-            height: 212,
-         },
-     ];
-     
-    return (
-        <div>
-            <Gallery images={images} />
+   const lightGallery = useRef(null);
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/cars")
+      .then((res) => res.json())
+      .then((data) => setCars(data));
+  }, []);
+
+
+  const onInit = useCallback((detail) => {
+    if (detail) {
+      lightGallery.current = detail.instance;
+    }
+  }, []);
+
+  const getItems = useCallback(() => {
+
+return cars.map((item) => {
+      return (
+        <div
+          key={item._id}
+          data-lg-size="1400-800"
+          className="gallery-item"
+          data-src={item.photo_url}
+        >
+          <img className="img-responsive" src={item.photo_url} />
         </div>
-    );
+      );
+    });
+
+  }, [cars]);
+
+  useEffect(() => {
+    lightGallery.current.refresh();
+  }, [cars]);
+
+  return (
+    <div className="">
+            <LightGallery 
+            className=""
+                plugins={[lgZoom]}
+                elementClassNames="custom-class-name"
+                onInit={onInit}
+            >
+                {getItems()}
+            </LightGallery>
+    </div>
+  );
 };
 
 export default CarGallery;

@@ -6,14 +6,17 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const ShopByCategory = () => {
   const [cars, setCars] = useState([]);
-  // const [subCategory, setSubCategory] = useState('Crime_Fighters')
+  const [subCategory, setSubCategory] = useState('Crime_Fighters')
 
-  const handelCarBySubCategory = (subCategory) => {
-    console.log(subCategory);
-    fetch(`http://localhost:5000/cars/${subCategory?subCategory :'Crime_Fighters'}`)
+  const handelCarBySubCategory = (subCarCategory) => {
+    // console.log(subCategory);
+    setSubCategory(subCarCategory)
+  };
+  useEffect(()=>{
+      fetch(`http://localhost:5000/cars/${subCategory}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
-  };
+  }, [subCategory])
 
   console.log(cars);
 
@@ -24,7 +27,7 @@ const ShopByCategory = () => {
           <Tab onClick={() => handelCarBySubCategory("High_Tech_Racers")}>
             Remote Control Car
           </Tab>
-          <Tab onClick={handelCarBySubCategory("Crime_Fighters")}>Police Cars</Tab>
+          <Tab onClick={ () =>handelCarBySubCategory("Crime_Fighters")}>Police Cars</Tab>
           <Tab onClick={() => handelCarBySubCategory("Speed_Titans")}>Sports Cars</Tab>
         </TabList>
         <TabPanel>
@@ -45,10 +48,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -85,10 +88,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -125,10 +128,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -174,10 +177,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -214,10 +217,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -254,10 +257,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -303,10 +306,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -342,10 +345,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
@@ -381,10 +384,10 @@ const ShopByCategory = () => {
                 {cars.map((car) => (
                   <>
                     <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div>
+                      <div className="w-1/2">
                         {" "}
                         <img
-                          className="w-[300px] rounded-lg"
+                          className="w-full rounded-lg"
                           src={car.photo_url}
                           alt=""
                         />
