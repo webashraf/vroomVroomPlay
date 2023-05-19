@@ -23,7 +23,7 @@ const Navbar = () => {
   const menu = (
     <>
       <Link to={"/"}>Home</Link>
-      <li>All toy</li>
+      <Link to={"/alltoys"}>All toy</Link>
       <li>Blogs</li>
       {user && (
         <>
@@ -36,7 +36,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 border-b-8 border-b-cyan-950 py-6">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -62,9 +62,9 @@ const Navbar = () => {
               {menu}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
+          <Link to={"/"} className="btn btn-ghost normal-case text-xl">
             VroomVroomPlay.com
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-6 font-semibold">

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Rating from "react-rating";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import Rating from "react-rating";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const ShopByCategory = () => {
   const [cars, setCars] = useState([]);
@@ -13,7 +13,7 @@ const ShopByCategory = () => {
     setSubCategory(subCarCategory)
   };
   useEffect(()=>{
-      fetch(`http://localhost:5000/cars/${subCategory}`)
+      fetch(`https://a-11-server-side.vercel.app/cars/${subCategory}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [subCategory])

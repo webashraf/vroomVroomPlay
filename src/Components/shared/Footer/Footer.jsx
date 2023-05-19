@@ -1,9 +1,8 @@
-import React from "react";
-
+import "./Footer.css"
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+    <div className="footerBg">
+      <footer className="footer p-10 text-neutral-content bg-[#1010107f]">
         <div>
           <svg
             width="50"

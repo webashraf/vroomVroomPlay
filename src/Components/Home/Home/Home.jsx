@@ -6,8 +6,8 @@ const Home = () => {
     return (
         <div className='flex flex-col gap-20'>
             <Banner></Banner>
-            <CarGallery></CarGallery>
             <ShopByCategory></ShopByCategory>
+            <CarGallery></CarGallery>
         </div>
     );
 };

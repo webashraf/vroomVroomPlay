@@ -1,6 +1,6 @@
 import LightGallery from "lightgallery/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import "./CarGallery.css"
+import "./CarGallery.css";
 // import styles
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
@@ -20,11 +20,11 @@ const CarGallery = () => {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/cars")
+    fetch(`https://a-11-server-side.vercel.app/mycars`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);
-
+console.log(cars);
 
   const onInit = useCallback((detail) => {
     if (detail) {
@@ -40,9 +40,9 @@ return cars.map((item) => {
           key={item._id}
           data-lg-size="1400-800"
           className="gallery-item"
-          data-src={item.photo_url}
+          data-src={item.photoUrl}
         >
-          <img className="img-responsive" src={item.photo_url} />
+          <img className="img-responsive" src={item.photoUrl} />
         </div>
       );
     });

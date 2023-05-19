@@ -1,5 +1,5 @@
-import CreatableSelect from "react-select/creatable";
 import { useContext, useState } from "react";
+import CreatableSelect from "react-select/creatable";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
 
 const AddAToy = () => {
@@ -16,7 +16,6 @@ const AddAToy = () => {
     const photoUrl = form.photoUrl.value;
     const name = form.name.value;
     const sallerName = form.sallerName.value;
-    // const categoriy = ;
     const sub_category = subCategory.value;
     const price = form.price.value;
     const ratings = form.rating.value;
@@ -28,6 +27,8 @@ const AddAToy = () => {
       name,
       sallerName,
       price,
+      sub_category,
+      category,
       ratings,
       availableQuantity,
       description,
@@ -35,7 +36,7 @@ const AddAToy = () => {
     };
     console.log(toy);
 
-    fetch(`http://localhost:5000/addcar`, {
+    fetch(`https://a-11-server-side.vercel.app/addcar`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -157,7 +158,7 @@ const AddAToy = () => {
                     <span className="label-text">Ratings</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="rating"
                     placeholder="Ratings"
                     className="input input-bordered"
@@ -168,9 +169,8 @@ const AddAToy = () => {
                     <span className="label-text">Available Quantity</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="availableQuantity"
-                    defaultValue={0}
                     placeholder="Available Quantity"
                     className="input input-bordered"
                   />
@@ -182,6 +182,7 @@ const AddAToy = () => {
                 </label>
                 <textarea
                   name="description"
+                  defaultValue={"Introducing the TurboTec Toy Car: a sleek and fast miniature racer. With its aerodynamic design and vibrant red body, it's sure to turn heads. Equipped with a powerful electric motor, precise steering, and reliable brakes, it offers unmatched speed and control. Built to last, it guarantees endless fun both indoors and outdoors. Customize it with decals and accessories for a personal touch. Unleash the champion within and conquer the race track!"}
                   placeholder="Description"
                   className="input input-bordered h-40"
                   id=""
