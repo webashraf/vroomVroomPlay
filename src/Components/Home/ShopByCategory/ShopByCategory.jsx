@@ -24,7 +24,7 @@ const ShopByCategory = () => {
     <div>
       <Tabs forceRenderTabPanel defaultIndex={1}>
         <TabList className={"bg-cyan-950 text-white text-center font-bold pt-5"}>
-          <Tab onClick={() => handelCarBySubCategory("High_Tech_Racers")}>
+          <Tab onClick={() => handelCarBySubCategory("High_Teach_Racer")}>
             Remote Control Car
           </Tab>
           <Tab onClick={ () =>handelCarBySubCategory("Crime_Fighters")}>Police Cars</Tab>
@@ -33,7 +33,7 @@ const ShopByCategory = () => {
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList className={"bg-cyan-800 text-white text-center font-bold pt-5"}>
-              <Tab onClick={() => handelCarBySubCategory("High_Tech_Racers")}>
+              <Tab onClick={() => handelCarBySubCategory("High_Teach_Racer")}>
                 High-Tech Racers
               </Tab>
               <Tab onClick={() => handelCarBySubCategory("Off-Road_Warriors")}>
@@ -170,7 +170,7 @@ const ShopByCategory = () => {
             <TabList className={"bg-cyan-800 text-white text-center font-bold pt-5"}>
               <Tab onClick={() => handelCarBySubCategory("Crime_Fighters")}>Crime Fighters</Tab>
               <Tab onClick={() => handelCarBySubCategory("Traffic_Controllers")}>Traffic Controllers</Tab>
-              <Tab onClick={() => handelCarBySubCategory("Special_Forces")}>Special Forces</Tab>
+              <Tab onClick={() => handelCarBySubCategory("Special_Force")}>Special Forces</Tab>
             </TabList>
             <TabPanel>
               <div className="flex justify-around">

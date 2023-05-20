@@ -53,6 +53,9 @@ console.log(loading);
 
   return (
     <div>
+      {
+        (cars.length < 1) && <h1 className="text-4xl uppercase text-center py-20">Toy not found</h1>
+      }
       <div className="overflow-x-auto">
         <table className="table w-full">
           {/* head */}

@@ -17,9 +17,9 @@ const AddAToy = () => {
     const name = form.name.value;
     const sallerName = form.sallerName.value;
     const sub_category = subCategory.value;
-    const price = form.price.value;
-    const ratings = form.rating.value;
-    const availableQuantity = form.availableQuantity.value;
+    const price = parseInt(form.price.value);
+    const ratings = parseFloat(form.rating.value);
+    const availableQuantity = parseInt(form.availableQuantity.value);
     const description = form.description.value;
     // const select = form.select.value;
     const toy = {
@@ -147,6 +147,7 @@ const AddAToy = () => {
                   <input
                     type="number"
                     name="price"
+                    required
                     placeholder="Price"
                     className="input input-bordered"
                   />
@@ -154,15 +155,31 @@ const AddAToy = () => {
               </div>
               <div className="flex gap-6">
                 <div className="form-control">
-                  <label className="label">
+                  {/* <label className="label">
                     <span className="label-text">Ratings</span>
-                  </label>
-                  <input
-                    type="number"
+                  </label> */}
+
+                  <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                      <span className="label-text">Ratings</span>
+                    </label>
+                    <select name="rating"  className="select select-bordered">
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4.1</option>
+                      <option>4.2</option>
+                      <option>4.3</option>
+                      <option>4.4</option>
+                      <option>5</option>>
+                    </select>
+                  </div>
+
+                  {/* <input
+                    type=""
                     name="rating"
                     placeholder="Ratings"
                     className="input input-bordered"
-                  />
+                  /> */}
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -182,7 +199,9 @@ const AddAToy = () => {
                 </label>
                 <textarea
                   name="description"
-                  defaultValue={"Introducing the TurboTec Toy Car: a sleek and fast miniature racer. With its aerodynamic design and vibrant red body, it's sure to turn heads. Equipped with a powerful electric motor, precise steering, and reliable brakes, it offers unmatched speed and control. Built to last, it guarantees endless fun both indoors and outdoors. Customize it with decals and accessories for a personal touch. Unleash the champion within and conquer the race track!"}
+                  defaultValue={
+                    "Introducing the TurboTec Toy Car: a sleek and fast miniature racer. With its aerodynamic design and vibrant red body, it's sure to turn heads. Equipped with a powerful electric motor, precise steering, and reliable brakes, it offers unmatched speed and control. Built to last, it guarantees endless fun both indoors and outdoors. Customize it with decals and accessories for a personal touch. Unleash the champion within and conquer the race track!"
+                  }
                   placeholder="Description"
                   className="input input-bordered h-40"
                   id=""

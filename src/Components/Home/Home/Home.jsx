@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import CarGallery from "../CarGallery/CarGallery";
+import Advanture from "../Advanture/Advanture";
 
 const Home = () => {
   return (
@@ -25,6 +26,18 @@ const Home = () => {
           </p>
         </div>
         <CarGallery></CarGallery>
+      </div>
+      <div>
+        <div className="py-20 text-center w-2/4 mx-auto">
+          <h1 className="text-7xl py-5 uppercase font-mono">
+          Playtime Adventures
+          </h1>
+          <p>
+            Discover captivating miniature car replicas in our vibrant photo
+            gallery, showcasing the essence of speed, elegance, and adventure.
+          </p>
+        </div>
+        <Advanture></Advanture>
       </div>
     </div>
   );

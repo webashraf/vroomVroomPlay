@@ -6,6 +6,7 @@ import Register from "../Components/Reginster/Register";
 import AddAToy from "../Components/AddAToy/AddAToy";
 import MyToy from "../Components/MyToy/MyToy";
 import AllToys from "../Components/AllToys/AllToys";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -26,11 +27,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "addtoy",
-        element: <AddAToy></AddAToy>,
+        element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>,
       },
       {
         path: "mytoy",
-        element: <MyToy></MyToy>,
+        element: <PrivateRoute><MyToy></MyToy></PrivateRoute>,
       },
       {
         path: "alltoys",

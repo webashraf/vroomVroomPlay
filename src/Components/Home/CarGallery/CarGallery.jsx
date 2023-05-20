@@ -1,6 +1,8 @@
 import LightGallery from "lightgallery/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./CarGallery.css";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 // import styles
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
@@ -53,8 +55,18 @@ return cars.map((item) => {
     lightGallery.current.refresh();
   }, [cars]);
 
+  // AOS //
+  useEffect(() => {
+    AOS.init();
+  }, []);
+  useEffect(() => {
+    AOS.refresh();
+  }, [cars]);
+
+
+
   return (
-    <div className="">
+    <div className="" data-aos="zoom-in-left">
             <LightGallery 
             className=""
                 plugins={[lgZoom]}

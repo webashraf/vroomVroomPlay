@@ -5,24 +5,29 @@ import { ContextProvider } from "../../AuthProvider/AuthProvider";
 const AllToys = () => {
   const { user } = useContext(ContextProvider);
   const [search, setSearch] = useState("");
-  console.log(search);
   const [cars, setCars] = useState([]);
+  const [sorting, setSorting] = useState("asc");
   useEffect(() => {
-    fetch(`http://localhost:5000/mycars`)
+    fetch(`http://localhost:5000/allcars?sort=${sorting}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
-  }, [user]);
-
+  }, [sorting]);
+  console.log(cars);
 
   // Handel Search //
   const handelSearch = (e) => {
-    setSearch(e.target.value)
+    setSearch(e.target.value);
     fetch(`http://localhost:5000/toySearch/${search}`)
-    .then(res=> res.json())
-    .then(data => setCars(data))
-  }
+      .then((res) => res.json())
+      .then((data) => setCars(data));
+  };
 
-  console.log(cars);
+  const handelSorting = (sortingMethod) => {
+    console.log(sorting);
+    setSorting(sortingMethod);
+  };
+
+  // console.log(cars);
   return (
     <div>
       <div className="  bg-[url('https://images.pexels.com/photos/6209485/pexels-photo-6209485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-bottom bg-no-repeat bg-cover">
@@ -31,7 +36,11 @@ const AllToys = () => {
         </div>
       </div>
       <div className="overflow-x-auto">
-        <div className="flex w-full justify-end my-10">
+        <div className="flex w-full justify-between my-10">
+          <div className="btn-group">
+            <button onClick={()=>handelSorting("asc")} className="btn bg-cyan-950">ASC</button>
+            <button onClick={()=> handelSorting("dsc")} className="btn bg-cyan-900">DSC</button>
+          </div>
           <div className="form-control ml-auto">
             <div className="input-group">
               <input
@@ -40,7 +49,10 @@ const AllToys = () => {
                 placeholder="Search…"
                 className="input input-bordered"
               />
-              <button onClick={handelSearch} className="btn btn-square bg-cyan-950">
+              <button
+                onClick={handelSearch}
+                className="btn btn-square bg-cyan-950"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
