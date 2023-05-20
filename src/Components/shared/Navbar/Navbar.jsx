@@ -62,8 +62,8 @@ const Navbar = () => {
               {menu}
             </ul>
           </div>
-          <Link to={"/"} className="btn btn-ghost normal-case text-xl">
-            VroomVroomPlay.com
+          <Link to={"/"} className="btn btn-ghost normal-case text-xl w-[200px]">
+            <img className="w-full" src="../../../../public/Untitled-1-Recovered.png" alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

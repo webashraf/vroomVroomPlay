@@ -94,7 +94,6 @@ const AllToys = () => {
 
                   <td>
                     <h4 className="font-bold uppercase">{car.sallerName}</h4>
-                    <h4>{car.saller_email}</h4>
                   </td>
                   <td>
                     <h4 className="font-bold uppercase">{car.name}</h4>

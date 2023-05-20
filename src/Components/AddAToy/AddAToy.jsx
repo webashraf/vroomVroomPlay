@@ -170,7 +170,7 @@ const AddAToy = () => {
                       <option>4.2</option>
                       <option>4.3</option>
                       <option>4.4</option>
-                      <option>5</option>>
+                      <option>5</option>
                     </select>
                   </div>
 
