@@ -13,7 +13,7 @@ const ShopByCategory = () => {
     setSubCategory(subCarCategory)
   };
   useEffect(()=>{
-      fetch(`https://a-11-server-side.vercel.app/cars/${subCategory}`)
+      fetch(`http://localhost:5000/cars/${subCategory}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [subCategory])
@@ -52,7 +52,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -92,7 +92,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -132,7 +132,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -181,7 +181,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -221,7 +221,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -261,7 +261,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -310,7 +310,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -349,7 +349,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>
@@ -388,7 +388,7 @@ const ShopByCategory = () => {
                         {" "}
                         <img
                           className="w-full rounded-lg"
-                          src={car.photo_url}
+                          src={car.photoUrl}
                           alt=""
                         />
                       </div>

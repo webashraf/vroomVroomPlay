@@ -8,15 +8,18 @@ const MyToy = () => {
   const { user } = useContext(ContextProvider);
   // console.log(user);
   const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(false)
+
+
   useEffect(() => {
     if (!(user === null)) {
       console.log(user?.email);
-      fetch(`https://a-11-server-side.vercel.app/mycars?email=${user?.email}`)
+      fetch(`http://localhost:5000/mycars?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setCars(data));
     }
-  }, [user]);
-
+  }, [loading, user]);
+console.log(loading);
 
   const handelDeleteCar = (id) => {
     // console.log(id);
@@ -32,14 +35,18 @@ const MyToy = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`https://a-11-server-side.vercel.app/deletecar/${id}`, {
+        fetch(`http://localhost:5000/deletecar/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json()",
           },
         })
           .then((res) => res.json())
-          .then((data) => console.log(data));
+          .then((data) => {
+            setLoading(!loading)
+            console.log(loading);
+            console.log(data);
+          });
       }
     });
   };

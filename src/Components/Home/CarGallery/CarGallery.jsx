@@ -20,7 +20,7 @@ const CarGallery = () => {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch(`https://a-11-server-side.vercel.app/mycars`)
+    fetch(`http://localhost:5000/mycars`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);

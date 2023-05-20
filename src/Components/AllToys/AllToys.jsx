@@ -4,18 +4,61 @@ import Rating from "react-rating";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
 const AllToys = () => {
   const { user } = useContext(ContextProvider);
-  console.log(user);
+  const [search, setSearch] = useState("");
+  console.log(search);
   const [cars, setCars] = useState([]);
   useEffect(() => {
-      fetch(`https://a-11-server-side.vercel.app/mycars`)
-        .then((res) => res.json())
-        .then((data) => setCars(data));
+    fetch(`http://localhost:5000/mycars`)
+      .then((res) => res.json())
+      .then((data) => setCars(data));
   }, [user]);
+
+
+  // Handel Search //
+  const handelSearch = (e) => {
+    setSearch(e.target.value)
+    fetch(`http://localhost:5000/toySearch/${search}`)
+    .then(res=> res.json())
+    .then(data => setCars(data))
+  }
 
   console.log(cars);
   return (
     <div>
+      <div className="  bg-[url('https://images.pexels.com/photos/6209485/pexels-photo-6209485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-bottom bg-no-repeat bg-cover">
+        <div className="text-center py-20 mx-auto text-white bg-[#1648557b] h-full">
+          <h1 className="text-7xl py-5 uppercase font-mono px-20">All Toys</h1>
+        </div>
+      </div>
       <div className="overflow-x-auto">
+        <div className="flex w-full justify-end my-10">
+          <div className="form-control ml-auto">
+            <div className="input-group">
+              <input
+                type="text"
+                onChange={handelSearch}
+                placeholder="Search…"
+                className="input input-bordered"
+              />
+              <button onClick={handelSearch} className="btn btn-square bg-cyan-950">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
         <table className="table w-full">
           {/* head */}
           <thead>
