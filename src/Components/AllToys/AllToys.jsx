@@ -16,19 +16,22 @@ const AllToys = () => {
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [sorting]);
-  console.log(cars);
+  // console.log(cars);
 
   // Handel Search //
-  const handelSearch = (e) => {
-    console.log(e.target.value);
-    setSearch(e.target.value);
+  const handelSearch = () => {
+    console.log(search);
+    // console.log(e.target.value);
+
+
+    // setSearch(e.target.value);
     fetch(`https://a-11-server-side.vercel.app/toySearch/${search}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   };
 
   const handelSorting = (sortingMethod) => {
-    console.log(sorting);
+    // console.log(sorting);
     setSorting(sortingMethod);
   };
   if (!cars) {
@@ -88,11 +91,11 @@ const AllToys = () => {
               DSC
             </button>
           </div>
-          <form className="form-control ml-auto">
+          <div className="form-control ml-auto">
             <div className="input-group">
               <input
                 type="text"
-                onChange={handelSearch}
+                onChange={(e)=> setSearch(e.target.value)}
                 placeholder="Search…"
                 className="input input-bordered"
               />
@@ -116,7 +119,7 @@ const AllToys = () => {
                 </svg>
               </button>
             </div>
-          </form>
+          </div>
         </div>
         <table className="table w-full">
           {/* head */}
@@ -124,7 +127,7 @@ const AllToys = () => {
             <tr>
               <th></th>
               {/* <th>Product Image</th> */}
-              <th>Saller Info</th>
+              <th>Saller Name</th>
               <th>Product Details</th>
               <th>Price</th>
               <th>Update and Delete</th>
@@ -143,11 +146,11 @@ const AllToys = () => {
                     <h4 className="font-bold uppercase">{car.sallerName}</h4>
                   </td>
                   <td>
-                    <h4 className="font-bold uppercase">{car.name}</h4>
+                    <h4 className="font-bold uppercase"><strong>Car Name : </strong>{car.name}</h4>
                     <h4>
                       <strong>Sub category : </strong> {car.sub_category}
-                      <strong>QTY : </strong> {car.availableQuantity}
                     </h4>
+                    <h4><strong>QTY : </strong> {car.availableQuantity}</h4>
                   </td>
                   <td className=" uppercase">
                     <strong>Price : </strong> ${car.price}

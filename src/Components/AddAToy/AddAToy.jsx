@@ -19,6 +19,7 @@ const AddAToy = () => {
     const name = form.name.value;
     const sallerName = form.sallerName.value;
     const sub_category = subCategory.value;
+    const saller_email = form.saller_email.value;
     const price = parseInt(form.price.value);
     const ratings = parseFloat(form.rating.value);
     const availableQuantity = parseInt(form.availableQuantity.value);
@@ -34,7 +35,7 @@ const AddAToy = () => {
       ratings,
       availableQuantity,
       description,
-      saller_email: user.email,
+      saller_email,
     };
     console.log(toy);
 
@@ -116,18 +117,17 @@ const AddAToy = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Categoriy</span>
+                    <span className="label-text">Saller Email</span>
                   </label>
-                  <CreatableSelect
-                    name="category"
-                    required
-                    className="w-full"
-                    defaultValue={setCategory}
-                    onChange={setCategory}
-                    options={carCategoriy}
-                    isMulti
+                  <input
+                    type="text"
+                    name="saller_email"
+                    defaultValue={user?.email}
+                    placeholder="Saller Email"
+                    className="input input-bordered"
                   />
                 </div>
+
               </div>
               <div className="flex gap-6">
                 <div className="form-control">
@@ -144,6 +144,24 @@ const AddAToy = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
+                    <span className="label-text">Categoriy</span>
+                  </label>
+                  <CreatableSelect
+                    name="category"
+                    required
+                    className="w-full"
+                    defaultValue={setCategory}
+                    onChange={setCategory}
+                    options={carCategoriy}
+                    isMulti
+                  />
+                </div>
+                
+              </div>
+              <div className="flex gap-6">
+
+                <div className="form-control">
+                  <label className="label">
                     <span className="label-text">Price</span>
                   </label>
                   <input
@@ -153,30 +171,6 @@ const AddAToy = () => {
                     placeholder="Price"
                     className="input input-bordered"
                   />
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="form-control">
-                  {/* <label className="label">
-                    <span className="label-text">Ratings</span>
-                  </label> */}
-
-                  <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                      <span className="label-text">Ratings</span>
-                    </label>
-                    <select name="rating"  className="select select-bordered">
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4.1</option>
-                      <option>4.2</option>
-                      <option>4.3</option>
-                      <option>4.4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-
-
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -190,6 +184,20 @@ const AddAToy = () => {
                   />
                 </div>
               </div>
+              <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                      <span className="label-text">Ratings</span>
+                    </label>
+                    <select name="rating"  className="select select-bordered">
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4.1</option>
+                      <option>4.2</option>
+                      <option>4.3</option>
+                      <option>4.4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Description</span>

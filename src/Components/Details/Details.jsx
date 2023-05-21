@@ -44,10 +44,6 @@ const Details = () => {
         <div className="w-1/2 space-y-3">
           <h2 className="text-6xl font-bold">{name}</h2>
           <h2 className="">
-            <strong>Car Id : </strong>
-            <span className="underline font-thin">{_id}</span>
-          </h2>
-          <h2 className="">
             <strong>Saller Name : </strong>
             <span className="underline font-thin">{sallerName}</span>
           </h2>
