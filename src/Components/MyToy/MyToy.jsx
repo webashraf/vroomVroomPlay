@@ -3,23 +3,26 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 import Swal from "sweetalert2";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const MyToy = () => {
   const [singleCar, setSingleCar] = useState({});
   const { user } = useContext(ContextProvider);
+  useTitle("My Toy");
   // console.log(user);
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [sorting, setSorting] = useState("asc");
 
   useEffect(() => {
     if (!(user === null)) {
-      console.log(user?.email);
-      fetch(`http://localhost:5000/mycars?email=${user?.email}`)
+      // console.log(user?.email);
+      fetch(`http://localhost:5000/mycars?email=${user?.email}&sort=${sorting}`)
         .then((res) => res.json())
         .then((data) => setCars(data));
     }
-  }, [loading, user]);
-  console.log(loading);
+  }, [loading, user, sorting]);
+  // console.log(loading);
 
   const handelDeleteCar = (id) => {
     // console.log(id);
@@ -83,8 +86,8 @@ const MyToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setLoading(!loading)
-        console.log(data)
+        setLoading(!loading);
+        console.log(data);
       });
   };
 
@@ -95,16 +98,14 @@ const MyToy = () => {
       .then((data) => setSingleCar(data));
   };
 
-  console.log(singleCar);
-  const {
-    availableQuantity,
-    description,
-    name,
-    photoUrl,
-    price,
-    _id,
-  } = singleCar;
+  // console.log(singleCar);
+  const { availableQuantity, description, name, photoUrl, price, _id } = singleCar;
 
+  // Handel Sorting //
+  const handelSorting = (sortingMethod) => {
+    // console.log(sorting);
+    setSorting(sortingMethod);
+  };
 
   return (
     <div>
@@ -165,8 +166,7 @@ const MyToy = () => {
                 </div>
               </div>
               <div className="flex gap-6">
-
-              <div className="form-control">
+                <div className="form-control">
                   <label className="label">
                     <span className="label-text">Price</span>
                   </label>
@@ -190,10 +190,14 @@ const MyToy = () => {
                     placeholder="Available Quantity"
                     className="input input-bordered"
                   />
-                  <input type="text" className="input input-bordered hidden" defaultValue={_id} name="carId" id="" />
+                  <input
+                    type="text"
+                    className="input input-bordered hidden"
+                    defaultValue={_id}
+                    name="carId"
+                    id=""
+                  />
                 </div>
-
-
               </div>
               <div className="form-control">
                 <label className="label">
@@ -223,10 +227,25 @@ const MyToy = () => {
         </div>
 
         {/* Modal Content End */}
+        {/* Modal Content End */}
+        {/* Modal Content End */}
+        {/* Modal Content End */}
+        {/* Modal Content End */}
+        {/* Modal Content End */}
+        {/* Modal Content End */}
       </div>
       {cars.length < 1 && (
         <h1 className="text-4xl uppercase text-center py-20">Toy not found</h1>
       )}
+      <div className="  bg-[url('https://images.pexels.com/photos/6209485/pexels-photo-6209485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-bottom bg-no-repeat bg-cover">
+        <div className="text-center py-20 mx-auto text-white bg-[#1648557b] h-full">
+          <h1 className="text-7xl py-5 uppercase font-mono px-20">My Toys</h1>
+        </div>
+      </div>
+      <div className="btn-group pt-10">
+            <button onClick={()=>handelSorting("asc")} className={`btn ${(sorting === "asc") ? "bg-cyan-950" : "bg-cyan-800"}`}>ASC</button>
+            <button onClick={()=> handelSorting("dsc")} className={`btn ${(sorting === "dsc") ? "bg-cyan-950" :   "bg-cyan-800"}`}>DSC</button>
+          </div>
       <div className="overflow-x-auto">
         <table className="table w-full">
           {/* head */}
@@ -259,7 +278,7 @@ const MyToy = () => {
                         <strong>Total Ratings: </strong>
                         <Rating
                           className="mt-1"
-                          placeholderRating={car.rating < 5 && car.rating}
+                          placeholderRating={car.ratings}
                           readonly
                           emptySymbol={
                             <AiOutlineStar className="text-yellow-500"></AiOutlineStar>

@@ -2,11 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const AllToys = () => {
   const { user } = useContext(ContextProvider);
   const [search, setSearch] = useState("");
   const [cars, setCars] = useState([]);
   const [sorting, setSorting] = useState("asc");
+  const navigate = useNavigate()
+  useTitle("All Toy");
   useEffect(() => {
     fetch(`http://localhost:5000/allcars?sort=${sorting}`)
       .then((res) => res.json())
@@ -26,7 +31,32 @@ const AllToys = () => {
     console.log(sorting);
     setSorting(sortingMethod);
   };
+  if (!cars) {
+    return (
+      <div className="flex justify-center items-center h-screen flex-col gap-10">
+        <h2 className="text-3xl text-blue-950 font-mono">Loading....</h2>
+        <progress className="progress w-56 text-center"></progress>
+      </div>
+    );
+  }
 
+  const handelDetailsBtn = (id) => {
+    if (!user) {
+      Swal.fire({
+        title: 'You have to log in first to view details',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate(`/details/${id}`)
+        }
+      })
+    }
+  }
+ 
   // console.log(cars);
   return (
     <div>
@@ -38,8 +68,22 @@ const AllToys = () => {
       <div className="overflow-x-auto">
         <div className="flex w-full justify-between my-10">
           <div className="btn-group">
-            <button onClick={()=>handelSorting("asc")} className="btn bg-cyan-950">ASC</button>
-            <button onClick={()=> handelSorting("dsc")} className="btn bg-cyan-900">DSC</button>
+            <button
+              onClick={() => handelSorting("asc")}
+              className={`btn ${
+                sorting === "asc" ? "bg-cyan-950" : "bg-cyan-800"
+              }`}
+            >
+              ASC
+            </button>
+            <button
+              onClick={() => handelSorting("dsc")}
+              className={`btn ${
+                sorting === "dsc" ? "bg-cyan-950" : "bg-cyan-800"
+              }`}
+            >
+              DSC
+            </button>
           </div>
           <div className="form-control ml-auto">
             <div className="input-group">
@@ -77,8 +121,8 @@ const AllToys = () => {
             <tr>
               <th></th>
               {/* <th>Product Image</th> */}
-              <th>Product Details</th>
               <th>Saller Info</th>
+              <th>Product Details</th>
               <th>Price</th>
               <th>Update and Delete</th>
             </tr>
@@ -99,25 +143,6 @@ const AllToys = () => {
                     <h4 className="font-bold uppercase">{car.name}</h4>
                     <h4>
                       <strong>Sub category : </strong> {car.sub_category}
-                    </h4>
-                    <span>
-                      <div className="flex gap-2 w-full ">
-                        <strong>Total Ratings: </strong>
-                        <Rating
-                          className="mt-1"
-                          placeholderRating={car.rating}
-                          readonly
-                          emptySymbol={
-                            <AiOutlineStar className="text-yellow-500"></AiOutlineStar>
-                          }
-                          placeholderSymbol={
-                            <AiFillStar className="text-yellow-500"></AiFillStar>
-                          }
-                        />
-                        <h4 className="mt-1">{car.ratings}</h4>
-                      </div>
-                    </span>
-                    <h4>
                       <strong>QTY : </strong> {car.availableQuantity}
                     </h4>
                   </td>
@@ -125,7 +150,9 @@ const AllToys = () => {
                     <strong>Price : </strong> ${car.price}
                   </td>
                   <td>
-                    <button className="btn bg-cyan-900 text-white">
+                    <button  onClick={()=>handelDetailsBtn(car._id)}
+                      className="btn bg-cyan-900 text-white btn-block"
+                    >
                       View Details
                     </button>{" "}
                   </td>

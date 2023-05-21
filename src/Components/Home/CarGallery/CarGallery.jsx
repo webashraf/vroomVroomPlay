@@ -1,8 +1,8 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import LightGallery from "lightgallery/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./CarGallery.css";
-import 'aos/dist/aos.css';
-import AOS from 'aos';
 // import styles
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";

@@ -22,6 +22,7 @@ const Navbar = () => {
   console.log(user);
   const menu = (
     <>
+    <Link to={"/"} className="">VroomVroomPlay</Link>
       <Link to={"/"}>Home</Link>
       <Link to={"/alltoys"}>All toy</Link>
       <li>Blogs</li>
@@ -64,6 +65,7 @@ const Navbar = () => {
           </div>
           <Link to={"/"} className="btn btn-ghost normal-case text-xl w-[200px]">
             <img className="w-full" src="../../../../public/Untitled-1-Recovered.png" alt="" />
+            
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

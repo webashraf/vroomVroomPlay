@@ -2,8 +2,10 @@ import Banner from "../Banner/Banner";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import CarGallery from "../CarGallery/CarGallery";
 import Advanture from "../Advanture/Advanture";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
+  useTitle("Home")
   return (
     <div className="flex flex-col gap-20">
       <Banner></Banner>

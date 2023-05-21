@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import CreatableSelect from "react-select/creatable";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const AddAToy = () => {
   const [subCategory, setSubCategory] = useState(null);
   const [category, setCategory] = useState(null);
   const { user } = useContext(ContextProvider);
+  useTitle("Add Toy")
 
   console.log(user);
 
@@ -174,12 +176,7 @@ const AddAToy = () => {
                     </select>
                   </div>
 
-                  {/* <input
-                    type=""
-                    name="rating"
-                    placeholder="Ratings"
-                    className="input input-bordered"
-                  /> */}
+
                 </div>
                 <div className="form-control">
                   <label className="label">

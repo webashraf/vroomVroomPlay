@@ -3,10 +3,12 @@ import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
   const [view, setView] = useState(false);
   const [errorM, setErrorM] = useState(null);
+  useTitle("Register")
 
   const { signUpWithGoogle, registerWithEmailAndpassword } =
     useContext(ContextProvider);

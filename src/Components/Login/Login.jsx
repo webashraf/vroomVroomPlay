@@ -1,15 +1,20 @@
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineGoogle } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 
 const Login = () => {
     const [view, setView] = useState(false);
     const [errorM, setErrorM] = useState(null);
-
+    useTitle("Log In")
     const {signUpWithGoogle, signInWithEmailPassword} =
     useContext(ContextProvider);
+    const location = useLocation();
+    console.log(location.state.from.pathname);
+    const from = location.state.from.pathname || "/";
+    const navigate = useNavigate();
 
     const handleLoginWithEmailAndPassword = (e) => {
         e.preventDefault();
@@ -22,6 +27,7 @@ const Login = () => {
             console.log(result);
             setErrorM(null);
             form.reset();
+            navigate(from, {replace: true})
           })
           .catch((error) => {
             setErrorM("Email or Password dosen't match!!!")
@@ -34,6 +40,7 @@ const Login = () => {
         signUpWithGoogle()
           .then((result) => {
             console.log(result);
+            navigate(from, {replace: true});
           })
           .catch((err) => {
             console.log(err);
