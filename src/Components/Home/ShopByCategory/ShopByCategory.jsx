@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { ContextProvider } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ShopByCategory = () => {
   const [cars, setCars] = useState([]);
   const [subCategory, setSubCategory] = useState("Crime_Fighters");
+  const {user} = useContext(ContextProvider);
+  const navigate = useNavigate();
 
   const handelCarBySubCategory = (subCarCategory) => {
     // console.log(subCategory);
@@ -27,6 +32,27 @@ const ShopByCategory = () => {
         <progress className="progress w-56 text-center"></progress>
       </div>
     );
+  }
+
+  const handelDetailsBtn = (id) => {
+    console.log(id);
+    if (!user) {
+      Swal.fire({
+        title: 'You have to log in first to view details',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Go to login page'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate(`/details/${id}`)
+        }
+      })
+    }
+    else{
+      navigate(`/details/${id}`)
+    }
   }
 
   return (
@@ -98,7 +124,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -145,7 +171,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -192,7 +218,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -258,7 +284,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -305,7 +331,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -352,7 +378,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -416,7 +442,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -463,7 +489,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>
@@ -510,7 +536,7 @@ const ShopByCategory = () => {
                           />
                           <h4 className="mt-1">{car.ratings}</h4>
                         </div>
-                        <button className="viewDetailsBtn  btn bg-blue-950 text-white">
+                        <button onClick={()=> handelDetailsBtn(car._id)} className="viewDetailsBtn  btn bg-blue-950 text-white">
                           View Details
                         </button>
                       </div>

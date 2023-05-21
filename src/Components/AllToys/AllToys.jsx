@@ -48,12 +48,15 @@ const AllToys = () => {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Go to login page'
       }).then((result) => {
         if (result.isConfirmed) {
           navigate(`/details/${id}`)
         }
       })
+    }
+    else{
+      navigate(`/details/${id}`)
     }
   }
  
