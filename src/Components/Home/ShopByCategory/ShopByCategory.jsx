@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
+import { useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { ContextProvider } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { ContextProvider } from "../../../AuthProvider/AuthProvider";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ShopByCategory = () => {
   const [cars, setCars] = useState([]);
@@ -18,12 +20,20 @@ const ShopByCategory = () => {
     setSubCategory(subCarCategory);
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/cars/${subCategory}`)
+    fetch(`https://a-11-server-side.vercel.app/cars/${subCategory}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [subCategory]);
 
   // console.log(cars);
+
+    // AOS //
+    useEffect(() => {
+      AOS.init();
+    }, []);
+    useEffect(() => {
+      AOS.refresh();
+    }, [cars]);
 
   if (!cars) {
     return (
@@ -33,6 +43,7 @@ const ShopByCategory = () => {
       </div>
     );
   }
+  
 
   const handelDetailsBtn = (id) => {
     console.log(id);
@@ -55,9 +66,10 @@ const ShopByCategory = () => {
     }
   }
 
+
   return (
     <div>
-      <Tabs forceRenderTabPanel defaultIndex={1}>
+      <Tabs forceRenderTabPanel defaultIndex={1} data-aos="zoom-in-right">
         <TabList
           className={"bg-cyan-950 text-white text-center font-bold pt-5"}
         >
@@ -87,11 +99,11 @@ const ShopByCategory = () => {
               </Tab>
             </TabList>
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -134,11 +146,11 @@ const ShopByCategory = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -181,11 +193,11 @@ const ShopByCategory = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -247,11 +259,11 @@ const ShopByCategory = () => {
               </Tab>
             </TabList>
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -294,11 +306,11 @@ const ShopByCategory = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -341,11 +353,11 @@ const ShopByCategory = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -405,11 +417,11 @@ const ShopByCategory = () => {
               </Tab>
             </TabList>
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -452,11 +464,11 @@ const ShopByCategory = () => {
               </div>
             </TabPanel>{" "}
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"
@@ -499,11 +511,11 @@ const ShopByCategory = () => {
               </div>
             </TabPanel>{" "}
             <TabPanel>
-              <div className="flex justify-around">
+              <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-row gap-10 items-center my-14">
-                      <div className="w-1/2">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                      <div className="md:w-1/2">
                         {" "}
                         <img
                           className="w-full rounded-lg"

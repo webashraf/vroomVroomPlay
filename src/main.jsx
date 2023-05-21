@@ -6,7 +6,7 @@ import routes from './routes/routes.jsx'
 import AuthProvider from './AuthProvider/AuthProvider'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<div style={{maxWidth: "1280px"}} className='mx-auto w-full'>
+<div style={{maxWidth: "1280px"}} className='mx-auto w-full overflow-x-hidden'>
 <AuthProvider>
     <RouterProvider router={routes}>
     </RouterProvider>

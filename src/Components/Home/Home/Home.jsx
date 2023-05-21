@@ -1,17 +1,19 @@
-import Banner from "../Banner/Banner";
-import ShopByCategory from "../ShopByCategory/ShopByCategory";
-import CarGallery from "../CarGallery/CarGallery";
-import Advanture from "../Advanture/Advanture";
 import useTitle from "../../../hooks/useTitle";
+import CarRacing from "../../CarRacing/CarRacing";
+import Advanture from "../Advanture/Advanture";
+import Banner from "../Banner/Banner";
+import CarGallery from "../CarGallery/CarGallery";
+import ShopByCategory from "../ShopByCategory/ShopByCategory";
 
 const Home = () => {
   useTitle("Home")
   return (
-    <div className="flex flex-col gap-20">
+<>
+<div className="flex flex-col gap-20">
       <Banner></Banner>
       <div>
         <div className="py-20 text-center w-2/4 mx-auto">
-          <h1 className="text-7xl py-5 uppercase font-mono">Shop by category</h1>
+          <h1 className="text-4xl md:text-7xl py-5 uppercase font-mono">Shop by category</h1>
           <p>
             Browse our toy website's "Shop by category" section for easy
             navigation and quick access to a diverse range of toys.
@@ -21,7 +23,7 @@ const Home = () => {
       </div>
       <div>
         <div className="py-20 text-center w-2/4 mx-auto">
-          <h1 className="text-7xl py-5 uppercase font-mono">Cars Gallery</h1>
+          <h1 className="text-5xl md:text-7xl py-5 uppercase font-mono">Cars Gallery</h1>
           <p>
             Discover captivating miniature car replicas in our vibrant photo
             gallery, showcasing the essence of speed, elegance, and adventure.
@@ -31,7 +33,7 @@ const Home = () => {
       </div>
       <div>
         <div className="py-20 text-center w-2/4 mx-auto">
-          <h1 className="text-7xl py-5 uppercase font-mono">
+          <h1 className="text-4xl md:text-7xl py-5 uppercase font-mono">
           Playtime Adventures
           </h1>
           <p>
@@ -41,7 +43,9 @@ const Home = () => {
         </div>
         <Advanture></Advanture>
       </div>
+      <CarRacing></CarRacing>
     </div>
+</>
   );
 };
 

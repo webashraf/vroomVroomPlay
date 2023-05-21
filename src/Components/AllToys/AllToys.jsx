@@ -1,19 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import Rating from "react-rating";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 const AllToys = () => {
   const { user } = useContext(ContextProvider);
   const [search, setSearch] = useState("");
   const [cars, setCars] = useState([]);
   const [sorting, setSorting] = useState("asc");
+  
   const navigate = useNavigate()
   useTitle("All Toy");
   useEffect(() => {
-    fetch(`http://localhost:5000/allcars?sort=${sorting}`)
+    fetch(`https://a-11-server-side.vercel.app/allcars?sort=${sorting}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [sorting]);
@@ -21,8 +20,9 @@ const AllToys = () => {
 
   // Handel Search //
   const handelSearch = (e) => {
+    console.log(e.target.value);
     setSearch(e.target.value);
-    fetch(`http://localhost:5000/toySearch/${search}`)
+    fetch(`https://a-11-server-side.vercel.app/toySearch/${search}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   };
@@ -88,7 +88,7 @@ const AllToys = () => {
               DSC
             </button>
           </div>
-          <div className="form-control ml-auto">
+          <form className="form-control ml-auto">
             <div className="input-group">
               <input
                 type="text"
@@ -116,7 +116,7 @@ const AllToys = () => {
                 </svg>
               </button>
             </div>
-          </div>
+          </form>
         </div>
         <table className="table w-full">
           {/* head */}

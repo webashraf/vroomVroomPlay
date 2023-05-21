@@ -1,7 +1,17 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 const Advanture = () => {
+    // AOS //
+    useEffect(() => {
+      AOS.init();
+    }, []);
+    useEffect(() => {
+      AOS.refresh();
+    }, []);
   return (
     <div>
-      <div className="flex flex-col w-full lg:flex-row">
+      <div className="flex flex-col w-full lg:flex-row" data-aos="zoom-in-right">
         <div className="grid flex-grow  card bg-base-300 rounded-box place-items-center p-10 text-center lg:w-[800px]">
           <img className="rounded-lg mb-10 " src="https://images.pexels.com/photos/4491565/pexels-photo-4491565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
           <h3 className="text-3xl mb-2">How Toy Cars Boost Brainpower</h3>

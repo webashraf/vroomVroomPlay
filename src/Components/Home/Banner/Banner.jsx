@@ -6,25 +6,26 @@ import AOS from "aos";
 import { useEffect } from "react";
 
 const Banner = () => {
-  // AOS //
-  useEffect(() => {
-    AOS.init();
-  }, []);
-  // useEffect(() => {
-  //   AOS.refresh();
-  // }, []);
+    // AOS //
+    useEffect(() => {
+      AOS.init();
+    }, []);
+    useEffect(() => {
+      AOS.refresh();
+    }, []);
 
   return (
     <div>
       <div className="carousel w-full">
+
         <div id="slide1" className="carousel-item relative w-full h-[600px]">
           <img
             src="https://i.ibb.co/w6Z4drc/pexels-photo-1194420.jpg"
             className="w-full"
           />
-          <div className="content-site absolute mt-auto w-full px-20 flex items-center justify-between h-full bg-[#10101095] ">
-            <div className="text-white w-1/2 my-auto z-10" data-aos="fade-right">
-              <h1 className="text-6xl mb-3 font-serif">
+          <div className="content-site absolute mt-auto w-full md:px-20 flex items-center justify-between h-full bg-[#10101095] flex-col md:flex-row">
+            <div className="text-white md:w-1/2 px-10 my-5 md:my-auto md:z-10" data-aos="zoom-in-left">
+              <h1 className="text-2xl md:text-6xl mb-3 font-serif">
                 VroomVroomPlay: Fueling Imagination with Exhilarating Car Toys!
               </h1>
               <p className="">
@@ -36,11 +37,11 @@ const Banner = () => {
                 VroomVroomPlay!
               </p>
             </div>
-            <div className="w-[40%]" data-aos="fade-left">
+            <div className="w-[55%] mb-6 md:mb-0 md:w-[40%]" data-aos="zoom-in-right">
               <Lottie animationData={carAnimation2} loop={true} />
             </div>
           </div>
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 bottom-32 md:top-1/2">
             <a href="#slide3" className="btn btn-circle bg-cyan-800 border-cyan-800">
               ❮
             </a>
@@ -49,17 +50,15 @@ const Banner = () => {
             </a>
           </div>
         </div>
+
         <div id="slide2" className="carousel-item relative w-full h-[600px]">
           <img
             src="https://i.ibb.co/rk3VJ91/pexels-photo-1702624.jpg"
             className="w-full"
           />
-          <div className="content-site absolute mt-auto w-full px-20 flex items-center justify-between h-full bg-[#10101095] ">
-            <div
-              className="text-white w-1/2 my-auto z-10"
-              data-aos="fade-right"
-            >
-              <h1 className="text-6xl mb-3 font-serif">
+          <div className="content-site absolute mt-auto w-full md:px-20 flex items-center justify-between h-full bg-[#10101095] flex-col md:flex-row">
+          <div className="text-white md:w-1/2 px-10 my-5 md:my-auto md:z-10" data-aos="zoom-in-left">
+              <h1 className="text-2xl md:text-6xl mb-3 font-serif">
                 Emotion in Motion: Exploring Baby's Joy with Toy Cars!
               </h1>
               <p className="">
@@ -70,11 +69,11 @@ const Banner = () => {
                 their journey of joy today!
               </p>
             </div>
-            <div className="w-[40%]" data-aos="fade-left">
+            <div className="w-[55%] mb-6 md:mb-0 md:w-[40%]" data-aos="zoom-in-right">
               <Lottie animationData={carAnimation1} loop={true} />
             </div>
           </div>
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 bottom-32 md:top-1/2">
             <a href="#slide1" className="btn btn-circle bg-cyan-800 border-cyan-800">
               ❮
             </a>
@@ -88,12 +87,9 @@ const Banner = () => {
             src="https://i.ibb.co/hWbY0s1/pexels-photo-1266808.jpg"
             className="w-full"
           />
-          <div className="content-site absolute mt-auto w-full px-20 flex items-center justify-between h-full bg-[#10101095] ">
-            <div
-              className="text-white w-1/2 my-auto z-10"
-              data-aos="fade-right"
-            >
-              <h1 className="text-6xl mb-3 font-serif">
+          <div className="content-site absolute mt-auto w-full md:px-20 flex items-center justify-between h-full bg-[#10101095] flex-col md:flex-row">
+          <div className="text-white md:w-1/2 px-10 my-5 md:my-auto md:z-10" data-aos="zoom-in-left">
+              <h1 className="text-2xl md:text-6xl mb-3 font-serif">
                 Rev Up the Fun: Explore Our World of Car Toys!
               </h1>
               <p className="">
@@ -106,11 +102,11 @@ const Banner = () => {
                 today and watch their joy ignite!
               </p>
             </div>
-            <div className="w-[40%]" data-aos="fade-left">
+            <div className="w-[55%] mb-6 md:mb-0 md:w-[40%]" data-aos="zoom-in-right">
               <img src="https://i.ibb.co/L5zbHTG/boy.png" alt="" />
             </div>
           </div>
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 bottom-32 md:top-1/2">
             <a href="#slide2" className="btn btn-circle bg-cyan-800 border-cyan-800">
               ❮
             </a>

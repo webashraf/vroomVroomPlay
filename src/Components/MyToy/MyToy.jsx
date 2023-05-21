@@ -17,7 +17,7 @@ const MyToy = () => {
   useEffect(() => {
     if (!(user === null)) {
       // console.log(user?.email);
-      fetch(`http://localhost:5000/mycars?email=${user?.email}&sort=${sorting}`)
+      fetch(`https://a-11-server-side.vercel.app/mycars?email=${user?.email}&sort=${sorting}`)
         .then((res) => res.json())
         .then((data) => setCars(data));
     }
@@ -38,7 +38,7 @@ const MyToy = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:5000/deletecar/${id}`, {
+        fetch(`https://a-11-server-side.vercel.app/deletecar/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json()",
@@ -77,7 +77,7 @@ const MyToy = () => {
     };
     console.log(toy);
 
-    fetch(`http://localhost:5000/updateAItem/${carId}`, {
+    fetch(`https://a-11-server-side.vercel.app/updateAItem/${carId}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -93,7 +93,7 @@ const MyToy = () => {
 
   const handelPrimaryUpdateModal = (carId) => {
     console.log(carId);
-    fetch(`http://localhost:5000/singleCars/${carId}`)
+    fetch(`https://a-11-server-side.vercel.app/singleCars/${carId}`)
       .then((res) => res.json())
       .then((data) => setSingleCar(data));
   };

@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../Components/layout/Main";
+import AddAToy from "../Components/AddAToy/AddAToy";
+import AllToys from "../Components/AllToys/AllToys";
+import Details from "../Components/Details/Details";
 import Home from "../Components/Home/Home/Home";
 import Login from "../Components/Login/Login";
-import Register from "../Components/Reginster/Register";
-import AddAToy from "../Components/AddAToy/AddAToy";
 import MyToy from "../Components/MyToy/MyToy";
-import AllToys from "../Components/AllToys/AllToys";
+import Blog from "../Components/Blog/Blog";
+import Register from "../Components/Reginster/Register";
+import Main from "../Components/layout/Main";
 import PrivateRoute from "./PrivateRoute";
-import Details from "../Components/Details/Details";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 const routes = createBrowserRouter([
   {
@@ -39,11 +41,17 @@ const routes = createBrowserRouter([
         element: <AllToys></AllToys>,
       },
       {
+        path: "blog",
+        element: <Blog></Blog>
+      },
+      {
         path: "details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/singleCars/${params.id}`)
-      }
+        loader: ({params}) => fetch(`https://a-11-server-side.vercel.app/singleCars/${params.id}`)
+      }, 
+
     ],
+    errorElement: <ErrorPage></ErrorPage>
   },
 ]);
 

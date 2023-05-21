@@ -16,13 +16,12 @@ import "lightgallery/scss/lightgallery.scss";
 import lgZoom from "lightgallery/plugins/zoom";
 
 // Plugins
-
 const CarGallery = () => {
    const lightGallery = useRef(null);
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mycars`)
+    fetch(`https://a-11-server-side.vercel.app/mycars`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);

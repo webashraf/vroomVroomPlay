@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ContextProvider } from "../../../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navba.css";
 
 const Navbar = () => {
@@ -22,14 +22,48 @@ const Navbar = () => {
   console.log(user);
   const menu = (
     <>
-    <Link to={"/"} className="">VroomVroomPlay</Link>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/alltoys"}>All toy</Link>
-      <li>Blogs</li>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "border-b-4 border-b-cyan-950" : ""
+        }
+        to={"/"}
+      >
+        Home
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "border-b-4 border-b-cyan-950" : ""
+        }
+        to={"/alltoys"}
+      >
+        All toy
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "border-b-4 border-b-cyan-950" : ""
+        }
+        to={"/blog"}
+      >
+        Blogs
+      </NavLink>
       {user && (
         <>
-          <Link to={"/mytoy"}>My toy</Link>
-          <Link to={"/addtoy"}>Add a toy</Link>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "border-b-4 border-b-cyan-950" : ""
+            }
+            to={"/mytoy"}
+          >
+            My toy
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "border-b-4 border-b-cyan-950" : ""
+            }
+            to={"/addtoy"}
+          >
+            Add a toy
+          </NavLink>
           <li onClick={SignOutUser}>Log Out</li>
         </>
       )}
@@ -63,10 +97,21 @@ const Navbar = () => {
               {menu}
             </ul>
           </div>
-          <Link to={"/"} className="btn btn-ghost normal-case text-xl w-[200px]">
-            <img className="w-full" src="../../../../public/Untitled-1-Recovered.png" alt="" />
-            
-          </Link>
+          <div className="flex items-center flex-col md:flex-row gap-5">
+            <Link
+              to={"/"}
+              className="btn btn-ghost normal-case text-xl w-[200px]"
+            >
+              <img
+                className="w-full"
+                src="https://i.ibb.co/3Whk9x4/Untitled-1-Recovered.png"
+                alt=""
+              />
+            </Link>
+            <Link to={"/"} className="">
+              VroomVroomPlay
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-6 font-semibold">
@@ -84,14 +129,13 @@ const Navbar = () => {
               </div>
             </label>
           ) : (
-            <Link
-              className="btn bg-blue-950 text-white"
-              to={"/login"}
-            >
+            <Link className="btn bg-blue-950 text-white" to={"/login"}>
               Login
             </Link>
           )}
-          <h2 className="userNameAuth absolute top-10 font-bold text-blue-900 bg-white p-5 shadow-2xl rounded-xl z-10 -right-1 hidden">{user?.displayName}</h2>
+          <h2 className="userNameAuth absolute top-10 font-bold text-blue-900 bg-white p-5 shadow-2xl rounded-xl z-10 -right-1 hidden">
+            {user?.displayName}
+          </h2>
         </div>
       </div>
     </div>

@@ -12,8 +12,8 @@ const Login = () => {
     const {signUpWithGoogle, signInWithEmailPassword} =
     useContext(ContextProvider);
     const location = useLocation();
-    console.log(location.state.from.pathname);
-    const from = location.state.from.pathname || "/";
+    // console.log(location.state.from.pathname);
+    const from = location?.state?.from?.pathname || "/";
     const navigate = useNavigate();
 
     const handleLoginWithEmailAndPassword = (e) => {
