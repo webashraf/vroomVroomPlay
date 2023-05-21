@@ -12,7 +12,7 @@ const Home = () => {
 <div className="flex flex-col gap-20">
       <Banner></Banner>
       <div>
-        <div className="py-20 text-center w-2/4 mx-auto">
+        <div className="py-20 text-center md:w-2/4 px-5 mx-auto">
           <h1 className="text-4xl md:text-7xl py-5 uppercase font-mono">Shop by category</h1>
           <p>
             Browse our toy website's "Shop by category" section for easy
@@ -22,7 +22,7 @@ const Home = () => {
         <ShopByCategory></ShopByCategory>
       </div>
       <div>
-        <div className="py-20 text-center w-2/4 mx-auto">
+        <div className="py-20 text-center md:w-2/4 px-5 mx-auto">
           <h1 className="text-5xl md:text-7xl py-5 uppercase font-mono">Cars Gallery</h1>
           <p>
             Discover captivating miniature car replicas in our vibrant photo
@@ -32,13 +32,12 @@ const Home = () => {
         <CarGallery></CarGallery>
       </div>
       <div>
-        <div className="py-20 text-center w-2/4 mx-auto">
+        <div className="py-20 text-center md:w-2/4 px-5 mx-auto">
           <h1 className="text-4xl md:text-7xl py-5 uppercase font-mono">
           Playtime Adventures
           </h1>
           <p>
-            Discover captivating miniature car replicas in our vibrant photo
-            gallery, showcasing the essence of speed, elegance, and adventure.
+          Accelerate your fun with "Playtime Adventures," the ultimate car racing destination for speed enthusiasts of all ages.
           </p>
         </div>
         <Advanture></Advanture>
