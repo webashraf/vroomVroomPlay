@@ -3,6 +3,7 @@ import CarRacing from "../../CarRacing/CarRacing";
 import Advanture from "../Advanture/Advanture";
 import Banner from "../Banner/Banner";
 import CarGallery from "../CarGallery/CarGallery";
+import ClientRivew from "../ClientRivew/ClientRivew";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 
 const Home = () => {
@@ -43,6 +44,7 @@ const Home = () => {
         <Advanture></Advanture>
       </div>
       <CarRacing></CarRacing>
+      <ClientRivew></ClientRivew>
     </div>
 </>
   );
