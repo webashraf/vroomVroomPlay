@@ -40,10 +40,12 @@ return cars.map((item) => {
         <div
           key={item._id}
           data-lg-size="1400-800"
-          className="gallery-item"
+          className="gallery-item overflow-hidden"
           data-src={item.photoUrl}
         >
-          <img className="img-responsive h-full object-cover w-full" src={item.photoUrl} />
+  
+
+          <img className="img-responsive h-full w-full object-cover hover-zoom " src={item.photoUrl} />
         </div>
       );
     });

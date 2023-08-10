@@ -1,7 +1,7 @@
 import "./Footer.css";
 const Footer = () => {
   return (
-    <div className="footerBg">
+    <div className="footerBg border-t-8 border-t-cyan-950">
       {/* <footer className="footer p-10 bg-base-300 text-base-content "> */}
       <footer className="footer p-10 bg-base-200 text-base-content bg-[#08635e66]">
   <div className="">

@@ -102,7 +102,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -149,7 +149,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -196,7 +196,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -262,7 +262,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -309,7 +309,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -356,7 +356,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -420,7 +420,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -467,7 +467,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img
@@ -514,7 +514,7 @@ const ShopByCategory = () => {
               <div className="flex md:justify-around flex-col md:flex-row">
                 {cars.map((car) => (
                   <>
-                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-14">
+                    <div className="shadow-2xl rounded-lg p-10 flex flex-col md:flex-row gap-10 items-center my-5 md:my-14">
                       <div className="md:w-1/2">
                         {" "}
                         <img

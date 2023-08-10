@@ -1,16 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddAToy from "../Components/AddAToy/AddAToy";
+import AddChampions from "../Components/AddChampion/AddChampions";
 import AllToys from "../Components/AllToys/AllToys";
+import Blog from "../Components/Blog/Blog";
 import Details from "../Components/Details/Details";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Home from "../Components/Home/Home/Home";
 import Login from "../Components/Login/Login";
 import MyToy from "../Components/MyToy/MyToy";
-import Blog from "../Components/Blog/Blog";
 import Register from "../Components/Reginster/Register";
 import Main from "../Components/layout/Main";
-import PrivateRoute from "./PrivateRoute";
-import ErrorPage from "../Components/ErrorPage/ErrorPage";
-import AddARivew from "../Components/AddARivew/AddARivew";
+// import  from "./";
 
 const routes = createBrowserRouter([
   {
@@ -31,15 +31,15 @@ const routes = createBrowserRouter([
       },
       {
         path: "addtoy",
-        element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>,
+        element: <><AddAToy></AddAToy></>,
       },
       {
         path: "mytoy",
-        element: <PrivateRoute><MyToy></MyToy></PrivateRoute>,
+        element: <><MyToy></MyToy></>,
       },
       {
-        path: "add-review",
-        element: <PrivateRoute><AddARivew></AddARivew></PrivateRoute>
+        path: "add-champions",
+        element: <><AddChampions></AddChampions></>
       },
       {
         path: "alltoys",
@@ -51,7 +51,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "details/:id",
-        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        element: <><Details></Details></>,
         loader: ({params}) => fetch(`https://a-11-server-side.vercel.app/singleCars/${params.id}`)
       }, 
 

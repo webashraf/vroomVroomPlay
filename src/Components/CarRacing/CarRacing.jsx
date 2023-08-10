@@ -24,7 +24,7 @@ const CarRacing = () => {
             <p className="py-6">
             Discover a world of excitement and endless fun at our toy website, where we specialize in organizing thrilling car racing events for kids. From miniature racetracks to customizable car designs, we offer unique experiences that ignite their passion for racing. Revolutionize their playtime with our innovative ideas and make every event a memorable adventure.
             </p>
-            <Link to={"/alltoys"} className="btn bg-cyan-900">See Our Cars</Link>
+            <Link to={"/alltoys"} className="btn bg-cyan-900 text-white">See Our Cars</Link>
           </div>
         </div>
       </div>

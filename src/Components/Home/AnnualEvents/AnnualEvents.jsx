@@ -11,11 +11,11 @@ const AnnualEvents = () => {
         loop
         muted
       ></video>
-      <div className="md:absolute md:top-0 md:my-auto md:left-0 w-full h-full">
+      <div className="md:absolute md:top-0 md:my-auto md:left-0 w-full h-full bg-[url('https://images.pexels.com/photos/210143/pexels-photo-210143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover md:bg-[url('https://images.pexels.com/photos/210143/pexels-photo-210143.jp')]">
         <div className="hero h-full md:px-20">
           <div className="flex flex-col gap-5 md:flex-row md:justify-between md:items-center w-full ">
            
-            <div className="join join-vertical w-full md:w-1/2 bg-rd-900 my-custom-gradient">
+            <div className="join join-vertical w-full md:w-1/2  my-custom-gradient bg-[#1010106c]">
               <div className="collapse collapse-arrow join-item border border-base-300 text-white">
                 <input type="radio" name="my-accordion-4" checked="checked" />
                 <div className="collapse-title text-xl font-medium">
@@ -101,16 +101,16 @@ const AnnualEvents = () => {
               </div>
             </div>
 
-            <div className="card flex-shrink-0 md:w-1/3 shadow-2xl bg-rd-900  hidde md:block my-custom-gradient">
+            <div className="card flex-shrink-0 md:w-1/3 shadow-2xl bg-rd-900 my-custom-gradient bg-[#ffffff55]">
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-[#1dcdbc]">Email</span>
+                    <span className="label-text text-[#1dcdbc] ">Email</span>
                   </label>
                   <input
                     type="text"
                     placeholder="email"
-                    className="input input-bordered input-accent bg-transparent text-[#1dcdbc]"
+                    className="input input-bordered input-accent bg-transparent text-[#1dcdbc] bg-[#10101097]"
                   />
                 </div>
                 <div className="form-control">
@@ -120,7 +120,7 @@ const AnnualEvents = () => {
                   <input
                     type="text"
                     placeholder="Event Name"
-                    className="input input-bordered input-accent bg-transparent text-[#1dcdbc]"
+                    className="input input-bordered input-accent bg-transparent text-[#1dcdbc] bg-[#10101097]"
                   />
                 </div>
                 <div className="form-control">
@@ -128,12 +128,12 @@ const AnnualEvents = () => {
                     <span className="label-text text-[#1dcdbc]">Message</span>
                   </label>
                   <textarea
-                    className="textarea textarea-accent bg-transparent text-[#1dcdbc]"
+                    className="textarea textarea-accent bg-transparent text-[#1dcdbc] bg-[#10101097]"
                     placeholder="Message"
                   ></textarea>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-[#1dcdbb52] border-0">Book A Event</button>
+                  <button className="btn bg-[#1dcdbb67] border-0">Book A Event</button>
                 </div>
               </div>
             </div>
