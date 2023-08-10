@@ -5,7 +5,6 @@ import Banner from "../Banner/Banner";
 import CarGallery from "../CarGallery/CarGallery";
 import ChampionStudents from "../ChampionStudents/ChampionStudents";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
-import Advanture from './../Advanture/Advanture';
 
 const Home = () => {
   useTitle("Home")
