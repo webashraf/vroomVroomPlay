@@ -2,16 +2,16 @@ import { useContext, useState } from "react";
 import CreatableSelect from "react-select/creatable";
 import { ContextProvider } from "../../AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
-const AddARivew = () => {
+const AddChampions = () => {
 
 
     const [category, setCategory] = useState(null);
     const { user } = useContext(ContextProvider);
-    useTitle("Add Toy")
+    useTitle("Add Champions")
   
     console.log(user);
   
-    const handleAddToy = (event) => {
+    const handleAddChampions = (event) => {
       event.preventDefault();
   
       const form = event.target;
@@ -22,26 +22,29 @@ const AddARivew = () => {
       const trophyCategory = category;
       const saller_email = form.saller_email.value;
       const ratings = parseFloat(form.rating.value);
+      const sports = form.sports.value;
       const availableQuantity = parseInt(form.availableQuantity.value);
       const description = form.description.value;
-      const toy = {
+      const Champions = {
         photoUrl,
         name,
         userName: sallerName,
+        sports,
         userEmail: saller_email,
         winedCategory: trophyCategory,
         position: ratings,
         totalTrophy: availableQuantity,
         description,
+        postDate: new Date ()
       };
-      console.log(toy);
+      console.log(Champions);
   
       fetch(`https://a-11-server-side.vercel.app/add-champion`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(toy),
+        body: JSON.stringify(Champions),
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
@@ -62,10 +65,10 @@ const AddARivew = () => {
           <div className="hero min-h-screen bg-base-200 pb-10">
             <div className="">
               <h1 className="text-5xl py-10 text-center font-mono uppercase">
-                ADD A toy
+                ADD A Champions
               </h1>
               <div className="bg-white rounded-lg shadow-2xl">
-                <form onSubmit={handleAddToy} className="card-body">
+                <form onSubmit={handleAddChampions} className="card-body">
                   <div className="flex gap-6">
                     <div className="form-control">
                       <label className="label">
@@ -131,6 +134,20 @@ const AddARivew = () => {
                       <option>3rd</option>
                     </select>
                   </div>
+
+                  <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">Sports Name</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="sports"
+                        placeholder="Sports Name"
+                        className="input input-bordered"
+                      />
+                    </div>
+
+
                   </div>
                   <div className="flex gap-6">
                     <div className="form-control">
@@ -168,7 +185,7 @@ const AddARivew = () => {
                     <textarea
                       name="description"
                       defaultValue={
-                        "Introducing the TurboTec Toy Car: a sleek and fast miniature racer. With its aerodynamic design and vibrant red body, it's sure to turn heads. Equipped with a powerful electric motor, precise steering, and reliable brakes, it offers unmatched speed and control. Built to last, it guarantees endless fun both indoors and outdoors. Customize it with decals and accessories for a personal touch. Unleash the champion within and conquer the race track!"
+                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, quam recusandae nesciunt enim deleniti dolorem incidunt quod ducimus et ad?"
                       }
                       placeholder="Description"
                       className="input input-bordered h-40"
@@ -195,4 +212,4 @@ const AddARivew = () => {
     };
     
 
-export default AddARivew;
+export default AddChampions;

@@ -69,9 +69,9 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive ? "border-b-4 border-b-cyan-950" : ""
         }
-        to={"/add-review"}
+        to={"/add-champions"}
       >
-        Add Review
+        Add Champions
       </NavLink>
 
       <NavLink

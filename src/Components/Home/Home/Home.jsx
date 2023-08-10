@@ -3,8 +3,9 @@ import CarRacing from "../../CarRacing/CarRacing";
 import Advanture from "../Advanture/Advanture";
 import Banner from "../Banner/Banner";
 import CarGallery from "../CarGallery/CarGallery";
-import ClientRivew from "../ClientRivew/ClientRivew";
+import ChampionStudents from "../ChampionStudents/ChampionStudents";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
+import Advanture from './../Advanture/Advanture';
 
 const Home = () => {
   useTitle("Home")
@@ -44,7 +45,7 @@ const Home = () => {
         <Advanture></Advanture>
       </div>
       <CarRacing></CarRacing>
-      <ClientRivew></ClientRivew>
+      <ChampionStudents></ChampionStudents>
     </div>
 </>
   );
