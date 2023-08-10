@@ -3,8 +3,8 @@ import CarRacing from "../../CarRacing/CarRacing";
 import Advanture from "../Advanture/Advanture";
 import Banner from "../Banner/Banner";
 import CarGallery from "../CarGallery/CarGallery";
-import ChampionStudents from "../ChampionStudents/ChampionStudents";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
+import ChampionStudents from './../ChampionStudents/ChampionStudents';
 
 const Home = () => {
   useTitle("Home")
