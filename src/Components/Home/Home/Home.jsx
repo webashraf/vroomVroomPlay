@@ -4,6 +4,7 @@ import Advanture from "../Advanture/Advanture";
 import AnnualEvents from "../AnnualEvents/AnnualEvents";
 import Banner from "../Banner/Banner";
 import CarGallery from "../CarGallery/CarGallery";
+import ClientRivew from "../ClientRivew/ClientRivew";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 
 const Home = () => {
@@ -45,7 +46,7 @@ const Home = () => {
       </div>
       <AnnualEvents></AnnualEvents>
       <CarRacing></CarRacing>
-      {/* <ClientRivew></ClientRivew> */}
+      <ClientRivew></ClientRivew>
     </div>
 </>
   );

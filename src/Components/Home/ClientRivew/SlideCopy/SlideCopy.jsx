@@ -17,7 +17,7 @@ const carousel = (slider) => {
   slider.on("detailsChanged", rotate)
 }
 
-const ClientRivew = () => {
+const SlideCopy = () => {
     const [sliderRef] = useKeenSlider(
         {
           loop: true,
@@ -45,4 +45,4 @@ const ClientRivew = () => {
       )
     }
 
-export default ClientRivew;
+export default SlideCopy;
