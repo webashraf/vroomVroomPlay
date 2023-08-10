@@ -64,6 +64,24 @@ const Navbar = () => {
           >
             Add a toy
           </NavLink>
+
+          <NavLink
+        className={({ isActive }) =>
+          isActive ? "border-b-4 border-b-cyan-950" : ""
+        }
+        to={"/add-review"}
+      >
+        Add Review
+      </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "border-b-4 border-b-cyan-950" : ""
+        }
+        to={"/blog"}
+      >
+        Blogs
+      </NavLink>
           <li onClick={SignOutUser}>Log Out</li>
         </>
       )}
@@ -107,9 +125,6 @@ const Navbar = () => {
                 src="https://i.ibb.co/3Whk9x4/Untitled-1-Recovered.png"
                 alt=""
               />
-            </Link>
-            <Link to={"/"} className="">
-              VroomVroomPlay
             </Link>
           </div>
         </div>

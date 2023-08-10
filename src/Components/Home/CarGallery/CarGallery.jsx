@@ -43,7 +43,7 @@ return cars.map((item) => {
           className="gallery-item"
           data-src={item.photoUrl}
         >
-          <img className="img-responsive" src={item.photoUrl} />
+          <img className="img-responsive h-full object-cover w-full" src={item.photoUrl} />
         </div>
       );
     });

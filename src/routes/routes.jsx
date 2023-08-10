@@ -10,6 +10,7 @@ import Register from "../Components/Reginster/Register";
 import Main from "../Components/layout/Main";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import AddARivew from "../Components/AddARivew/AddARivew";
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path: "mytoy",
         element: <PrivateRoute><MyToy></MyToy></PrivateRoute>,
+      },
+      {
+        path: "add-review",
+        element: <PrivateRoute><AddARivew></AddARivew></PrivateRoute>
       },
       {
         path: "alltoys",

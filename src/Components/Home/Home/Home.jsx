@@ -45,6 +45,7 @@ const Home = () => {
       </div>
       <AnnualEvents></AnnualEvents>
       <CarRacing></CarRacing>
+      {/* <ClientRivew></ClientRivew> */}
     </div>
 </>
   );
