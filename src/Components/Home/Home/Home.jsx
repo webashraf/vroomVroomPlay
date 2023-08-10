@@ -1,6 +1,7 @@
 import useTitle from "../../../hooks/useTitle";
 import CarRacing from "../../CarRacing/CarRacing";
 import Advanture from "../Advanture/Advanture";
+import AnnualEvents from "../AnnualEvents/AnnualEvents";
 import Banner from "../Banner/Banner";
 import CarGallery from "../CarGallery/CarGallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
@@ -42,6 +43,7 @@ const Home = () => {
         </div>
         <Advanture></Advanture>
       </div>
+      <AnnualEvents></AnnualEvents>
       <CarRacing></CarRacing>
     </div>
 </>
