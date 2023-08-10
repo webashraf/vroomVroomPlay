@@ -6,10 +6,9 @@ import useTitle from "../../hooks/useTitle";
 const AddAToy = () => {
   const [subCategory, setSubCategory] = useState(null);
   const [category, setCategory] = useState(null);
-  const { user } = useContext(ContextProvider);
+  const { user, preUser } = useContext(ContextProvider);
   useTitle("Add Toy")
 
-  console.log(user);
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -110,7 +109,7 @@ const AddAToy = () => {
                   <input
                     type="text"
                     name="sallerName"
-                    defaultValue={user?.displayName}
+                    defaultValue={user ? user?.displayName : preUser?.displayName}
                     placeholder="Saller Name"
                     className="input input-bordered"
                   />
@@ -122,7 +121,7 @@ const AddAToy = () => {
                   <input
                     type="text"
                     name="saller_email"
-                    defaultValue={user?.email}
+                    defaultValue={user? user?.email : preUser?.email}
                     placeholder="Saller Email"
                     className="input input-bordered"
                   />

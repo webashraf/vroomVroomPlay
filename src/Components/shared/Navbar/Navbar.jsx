@@ -4,15 +4,8 @@ import { Link, NavLink } from "react-router-dom";
 import "./Navba.css";
 
 const Navbar = () => {
-  const { user, handleSignOut, loader } = useContext(ContextProvider);
-  // if (loader) {
-  //   return (
-  //     <div className="flex justify-center items-center h-screen flex-col gap-10">
-  //       <h2 className="text-3xl text-blue-950 font-mono">Loading....</h2>
-  //       <progress className="progress w-56 text-center"></progress>
-  //     </div>
-  //   );
-  // }
+  const { user, handleSignOut, loader, preUser } = useContext(ContextProvider);
+  console.log("Userrrrrrrrrrrrrrrrrrrrrrrrr", preUser);
   const SignOutUser = () => {
     handleSignOut()
       .then((result) => console.log(result))
@@ -38,15 +31,7 @@ const Navbar = () => {
       >
         All toy
       </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive ? "border-b-4 border-b-cyan-950" : ""
-        }
-        to={"/blog"}
-      >
-        Blogs
-      </NavLink>
-      {user && (
+      {user || preUser && (
         <>
           <NavLink
             className={({ isActive }) =>
@@ -82,7 +67,7 @@ const Navbar = () => {
       >
         Blogs
       </NavLink>
-          <li onClick={SignOutUser}>Log Out</li>
+           {user && <li onClick={SignOutUser}>Log Out</li>}
         </>
       )}
     </>
@@ -115,6 +100,7 @@ const Navbar = () => {
               {menu}
             </ul>
           </div>
+
           <div className="flex items-center flex-col md:flex-row gap-5">
             <Link
               to={"/"}
@@ -127,13 +113,13 @@ const Navbar = () => {
               />
             </Link>
           </div>
+          
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex gap-5">
           <ul className="menu menu-horizontal px-1 gap-6 font-semibold">
             {menu}
           </ul>
-        </div>
-        <div className="navbar-end relative">
+        <div className="relative">
           {user ? (
             <label
               tabIndex={0}
@@ -144,13 +130,14 @@ const Navbar = () => {
               </div>
             </label>
           ) : (
-            <Link className="btn bg-blue-950 text-white" to={"/login"}>
+            <Link className="btn btn-sm bg-blue-950 text-white" to={"/login"}>
               Login
             </Link>
           )}
           <h2 className="userNameAuth absolute top-10 font-bold text-blue-900 bg-white p-5 shadow-2xl rounded-xl z-10 -right-1 hidden">
             {user?.displayName}
           </h2>
+        </div>
         </div>
       </div>
     </div>

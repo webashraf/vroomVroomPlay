@@ -37,7 +37,7 @@ const ChampionStudents = () => {
       >
 
         {
-          champions.slice(0, 6).map(champ => {
+          champions.map(champ => {
             return <SwiperSlide key={champ?._id} className='shadow-2xl'>
 
               <div className='h-[330px] '>

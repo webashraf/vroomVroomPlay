@@ -10,7 +10,7 @@ import Login from "../Components/Login/Login";
 import MyToy from "../Components/MyToy/MyToy";
 import Register from "../Components/Reginster/Register";
 import Main from "../Components/layout/Main";
-import PrivateRoute from "./PrivateRoute";
+// import  from "./";
 
 const routes = createBrowserRouter([
   {
@@ -31,15 +31,15 @@ const routes = createBrowserRouter([
       },
       {
         path: "addtoy",
-        element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>,
+        element: <><AddAToy></AddAToy></>,
       },
       {
         path: "mytoy",
-        element: <PrivateRoute><MyToy></MyToy></PrivateRoute>,
+        element: <><MyToy></MyToy></>,
       },
       {
         path: "add-champions",
-        element: <PrivateRoute><AddChampions></AddChampions></PrivateRoute>
+        element: <><AddChampions></AddChampions></>
       },
       {
         path: "alltoys",
@@ -51,7 +51,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "details/:id",
-        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        element: <><Details></Details></>,
         loader: ({params}) => fetch(`https://a-11-server-side.vercel.app/singleCars/${params.id}`)
       }, 
 

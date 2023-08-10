@@ -6,7 +6,7 @@ const AddChampions = () => {
 
 
     const [category, setCategory] = useState(null);
-    const { user } = useContext(ContextProvider);
+    const { user, preUser } = useContext(ContextProvider);
     useTitle("Add Champions")
   
     console.log(user);
@@ -103,7 +103,7 @@ const AddChampions = () => {
                       <input
                         type="text"
                         name="sallerName"
-                        value={user?.displayName}
+                        value={user ? user?.displayName : preUser?.displayName} 
                         placeholder="Saller Name"
                         className="input input-bordered"
                       />
@@ -115,7 +115,7 @@ const AddChampions = () => {
                       <input
                         type="text"
                         name="saller_email"
-                        value={user?.email}
+                        value={user?.email || preUser?.email}
                         placeholder="Saller Email"
                         className="input input-bordered"
                       />

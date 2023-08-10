@@ -7,7 +7,7 @@ import useTitle from "../../hooks/useTitle";
 
 const MyToy = () => {
   const [singleCar, setSingleCar] = useState({});
-  const { user } = useContext(ContextProvider);
+  const { user, preUser } = useContext(ContextProvider);
   useTitle("My Toy");
   // console.log(user);
   const [cars, setCars] = useState([]);
@@ -20,6 +20,11 @@ const MyToy = () => {
       fetch(`https://a-11-server-side.vercel.app/mycars?email=${user?.email}&sort=${sorting}`)
         .then((res) => res.json())
         .then((data) => setCars(data));
+    }
+    else{
+      fetch(`https://a-11-server-side.vercel.app/mycars?email=${preUser?.email}&sort=${sorting}`)
+      .then((res) => res.json())
+      .then((data) => setCars(data));
     }
   }, [loading, user, sorting]);
   // console.log(loading);
