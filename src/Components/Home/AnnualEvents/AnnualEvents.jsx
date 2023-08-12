@@ -2,6 +2,11 @@ import React from "react";
 import carVideo from "/car.mp4";
 
 const AnnualEvents = () => {
+
+  const handleEmailForm = e => {
+    e.preventDefault();
+  }
+
   return (
     <div className="md:relative mb-10">
       <video
@@ -102,40 +107,43 @@ const AnnualEvents = () => {
             </div>
 
             <div className="card flex-shrink-0 md:w-1/3 shadow-2xl bg-rd-900 my-custom-gradient bg-[#ffffff55]">
-              <div className="card-body">
+              <form onSubmit={handleEmailForm} className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-[#1dcdbc] ">Email</span>
+                    <span className="label-text text-white font-bold ">Email</span>
                   </label>
                   <input
                     type="text"
                     placeholder="email"
-                    className="input input-bordered input-accent bg-transparent text-[#1dcdbc] bg-[#10101097]"
+                    required
+                    className="input input-bordered border-[#172554] text-white font-bold bg-[#10101097]"
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-[#1dcdbc]">Event Name</span>
+                    <span className="label-text text-white font-bold">Event Name</span>
                   </label>
                   <input
                     type="text"
                     placeholder="Event Name"
-                    className="input input-bordered input-accent bg-transparent text-[#1dcdbc] bg-[#10101097]"
+                    required
+                    className="input input-bordered border-[#172554] text-white font-bold bg-[#10101097]"
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-[#1dcdbc]">Message</span>
+                    <span className="label-text text-white font-bold">Message</span>
                   </label>
                   <textarea
-                    className="textarea textarea-accent bg-transparent text-[#1dcdbc] bg-[#10101097]"
+                    className="textarea border-[#172554] text-white font-bold bg-[#10101097]"
                     placeholder="Message"
+                    required
                   ></textarea>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-[#1dcdbb67] border-0">Book A Event</button>
+                  <button className="btn bg-[#172554b2] text-white border-0">Book A Event</button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

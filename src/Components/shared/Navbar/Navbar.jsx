@@ -73,7 +73,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div>
+    <div className="">
       <div className="navbar bg-base-100 border-b-8 border-b-cyan-950 py-6">
 
 
