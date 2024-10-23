@@ -9,7 +9,6 @@ const AddChampions = () => {
     const { user, preUser } = useContext(ContextProvider);
     useTitle("Add Champions")
   
-    console.log(user);
   
     const handleAddChampions = (event) => {
       event.preventDefault();
@@ -37,7 +36,6 @@ const AddChampions = () => {
         description,
         postDate: new Date ()
       };
-      console.log(Champions);
   
       fetch(`https://a-11-server-side.vercel.app/add-champion`, {
         method: "POST",
@@ -62,7 +60,7 @@ const AddChampions = () => {
 
     return (
         <div className="py-10">
-          <div className="hero min-h-screen bg-base-200 pb-10">
+          <div className="hero min-h-screen bg-white pb-10">
             <div className="">
               <h1 className="text-5xl py-10 text-center font-mono uppercase">
                 ADD A Champions
@@ -79,7 +77,7 @@ const AddChampions = () => {
                         name="photoUrl"
                         required
                         placeholder="Photo Url"
-                        className="input input-bordered"
+                        className="input input-bordered bg-white"
                       />
                     </div>
                     <div className="form-control">
@@ -91,7 +89,7 @@ const AddChampions = () => {
                         name="name"
                         required
                         placeholder="Name"
-                        className="input input-bordered"
+                        className="input input-bordered bg-white"
                       />
                     </div>
                   </div>
@@ -105,7 +103,7 @@ const AddChampions = () => {
                         name="sallerName"
                         value={user ? user?.displayName : preUser?.displayName} 
                         placeholder="Saller Name"
-                        className="input input-bordered"
+                        className="input input-bordered bg-white"
                       />
                     </div>
                     <div className="form-control">
@@ -117,7 +115,7 @@ const AddChampions = () => {
                         name="saller_email"
                         value={user?.email || preUser?.email}
                         placeholder="Saller Email"
-                        className="input input-bordered"
+                        className="input input-bordered bg-white"
                       />
                     </div>
     
@@ -127,7 +125,7 @@ const AddChampions = () => {
                     <label className="label">
                       <span className="label-text">Candidate Position</span>
                     </label>
-                    <select name="rating"  className="select select-bordered">
+                    <select name="rating"  className="select select-bordered bg-white">
 
                       <option selected>1st</option>
                       <option>2nd</option>
@@ -143,7 +141,7 @@ const AddChampions = () => {
                         type="text"
                         name="sports"
                         placeholder="Sports Name"
-                        className="input input-bordered"
+                        className="input input-bordered bg-white"
                       />
                     </div>
 
@@ -174,7 +172,7 @@ const AddChampions = () => {
                         type="number"
                         name="availableQuantity"
                         placeholder="Available Quantity"
-                        className="input input-bordered"
+                        className="input input-bordered bg-white"
                       />
                     </div>
                   </div>
@@ -188,7 +186,7 @@ const AddChampions = () => {
                         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, quam recusandae nesciunt enim deleniti dolorem incidunt quod ducimus et ad?"
                       }
                       placeholder="Description"
-                      className="input input-bordered h-40"
+                      className="input input-bordered bg-white h-40"
                       id=""
                       cols=""
                       rows="20"

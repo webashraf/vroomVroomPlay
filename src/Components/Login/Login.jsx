@@ -12,7 +12,6 @@ const Login = () => {
     const {signUpWithGoogle, signInWithEmailPassword} =
     useContext(ContextProvider);
     const location = useLocation();
-    // console.log(location.state.from.pathname);
     const from = location?.state?.from?.pathname || "/";
     const navigate = useNavigate();
 
@@ -24,14 +23,12 @@ const Login = () => {
     
         signInWithEmailPassword(email, password)
           .then((result) => {
-            console.log(result);
             setErrorM(null);
             form.reset();
             navigate(from, {replace: true})
           })
           .catch((error) => {
             setErrorM("Email or Password dosen't match!!!")
-            console.log(error);
           });
           form.reset();
       };
@@ -39,7 +36,6 @@ const Login = () => {
     const googleSignIn = () => {
         signUpWithGoogle()
           .then((result) => {
-            console.log(result);
             navigate(from, {replace: true});
           })
           .catch((err) => {
@@ -49,14 +45,14 @@ const Login = () => {
 
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-white">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left lg:w-1/2 px-10">
             <h1 className="text-5xl font-bold">
            Login VroomVroomPlay now!
             </h1>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-white">
             <form onSubmit={handleLoginWithEmailAndPassword} className="card-body pb-4">
             <div className="text-red-500 font-bold m-4 p-3 rounded-lg">
               {errorM}

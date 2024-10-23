@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 .hover-zoom {
-    transition: transform 0.3s ease;
-  }
-  .hover-zoom:hover {
-    transform: scale(1.5);
-  }
+  transition: transform 0.3s ease;
+}
+.hover-zoom:hover {
+  transform: scale(1.5);
+}
+
+html,
+body {
+  background-color: #fff;
+}
+#root {
+  background-color: #fff;
+}

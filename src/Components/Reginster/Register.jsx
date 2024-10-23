@@ -61,7 +61,7 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-white">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left lg:w-1/2 px-10">
           <h1 className="text-5xl font-bold">Join VroomVroomPlay today!</h1>
@@ -71,7 +71,7 @@ const Register = () => {
             before. Unleash the thrill today!
           </p>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-white">
           <form
             onSubmit={signUpWithEmailAndPassword}
             className="card-body pb-2"

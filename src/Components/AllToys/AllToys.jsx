@@ -16,22 +16,18 @@ const AllToys = () => {
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [sorting]);
-  // console.log(cars);
 
   // Handel Search //
   const handelSearch = () => {
     console.log(search);
-    // console.log(e.target.value);
 
 
-    // setSearch(e.target.value);
     fetch(`https://a-11-server-side.vercel.app/toySearch/${search}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   };
 
   const handelSorting = (sortingMethod) => {
-    // console.log(sorting);
     setSorting(sortingMethod);
   };
   if (!cars) {
@@ -63,7 +59,6 @@ const AllToys = () => {
     }
   }
  
-  // console.log(cars);
   return (
     <div>
       <div className="  bg-[url('https://images.pexels.com/photos/6209485/pexels-photo-6209485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-bottom bg-no-repeat bg-cover">
@@ -97,7 +92,7 @@ const AllToys = () => {
                 type="text"
                 onChange={(e)=> setSearch(e.target.value)}
                 placeholder="Search…"
-                className="input input-bordered"
+                className="input input-bordered text-white"
               />
               <button
                 onClick={handelSearch}
@@ -136,12 +131,9 @@ const AllToys = () => {
           <tbody>
             {cars.map((car, i) => (
               <>
-                <tr className="hover" key={car._id}>
+                <tr className="hover:bg-cyan-50" key={car._id}>
                   <th>{i + 1}</th>
-                  {/* <td>
-                    <img src={car.photoUrl} className="w-[200px]" alt="" />
-                  </td> */}
-
+          
                   <td>
                     <h4 className="font-bold uppercase">{car.sallerName}</h4>
                   </td>

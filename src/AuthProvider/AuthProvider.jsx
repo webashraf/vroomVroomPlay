@@ -28,7 +28,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true)
 
-  console.log("Userrrrrrrrrrrrrrrrrrrrrrrrr", preUser);
   const signUpWithGoogle = () => {
     setLoader(true);
     return signInWithPopup(auth, googleProvider);

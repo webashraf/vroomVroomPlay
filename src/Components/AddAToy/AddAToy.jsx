@@ -36,7 +36,6 @@ const AddAToy = () => {
       description,
       saller_email,
     };
-    console.log(toy);
 
     fetch(`https://a-11-server-side.vercel.app/addcar`, {
       method: "POST",
@@ -68,7 +67,7 @@ const AddAToy = () => {
 
   return (
     <div className="py-10">
-      <div className="hero min-h-screen bg-base-200 pb-10">
+      <div className="hero min-h-screen bg-white pb-10">
         <div className="">
           <h1 className="text-5xl py-10 text-center font-mono uppercase">
             ADD A toy
@@ -85,7 +84,7 @@ const AddAToy = () => {
                     name="photoUrl"
                     required
                     placeholder="Photo Url"
-                    className="input input-bordered"
+                    className="input input-bordered bg-white/80"
                   />
                 </div>
                 <div className="form-control">
@@ -97,7 +96,7 @@ const AddAToy = () => {
                     name="name"
                     required
                     placeholder="Name"
-                    className="input input-bordered"
+                    className="input input-bordered bg-white/80"
                   />
                 </div>
               </div>
@@ -111,7 +110,7 @@ const AddAToy = () => {
                     name="sallerName"
                     defaultValue={user ? user?.displayName : preUser?.displayName}
                     placeholder="Saller Name"
-                    className="input input-bordered"
+                    className="input input-bordered bg-white/80"
                   />
                 </div>
                 <div className="form-control">
@@ -123,7 +122,7 @@ const AddAToy = () => {
                     name="saller_email"
                     defaultValue={user? user?.email : preUser?.email}
                     placeholder="Saller Email"
-                    className="input input-bordered"
+                    className="input input-bordered bg-white/80"
                   />
                 </div>
 
@@ -168,7 +167,7 @@ const AddAToy = () => {
                     name="price"
                     required
                     placeholder="Price"
-                    className="input input-bordered"
+                    className="input input-bordered bg-white/80"
                   />
                 </div>
                 <div className="form-control">
@@ -179,7 +178,7 @@ const AddAToy = () => {
                     type="number"
                     name="availableQuantity"
                     placeholder="Available Quantity"
-                    className="input input-bordered"
+                    className="input input-bordered bg-white/80"
                   />
                 </div>
               </div>
@@ -187,7 +186,7 @@ const AddAToy = () => {
                     <label className="label">
                       <span className="label-text">Ratings</span>
                     </label>
-                    <select name="rating"  className="select select-bordered">
+                    <select name="rating"  className="select select-bordered bg-white">
                       <option>2</option>
                       <option>3</option>
                       <option>4.1</option>
@@ -207,7 +206,7 @@ const AddAToy = () => {
                     "Introducing the TurboTec Toy Car: a sleek and fast miniature racer. With its aerodynamic design and vibrant red body, it's sure to turn heads. Equipped with a powerful electric motor, precise steering, and reliable brakes, it offers unmatched speed and control. Built to last, it guarantees endless fun both indoors and outdoors. Customize it with decals and accessories for a personal touch. Unleash the champion within and conquer the race track!"
                   }
                   placeholder="Description"
-                  className="input input-bordered h-40"
+                  className="input input-bordered bg-white/80 h-40"
                   id=""
                   cols=""
                   rows="20"

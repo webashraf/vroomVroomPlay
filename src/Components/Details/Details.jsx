@@ -6,7 +6,6 @@ import useTitle from "../../hooks/useTitle";
 const Details = () => {
   const car = useLoaderData();
   useTitle("Details")
-  console.log(car);
   const {
     availableQuantity,
     description,

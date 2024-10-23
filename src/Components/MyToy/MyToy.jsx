@@ -9,14 +9,12 @@ const MyToy = () => {
   const [singleCar, setSingleCar] = useState({});
   const { user, preUser } = useContext(ContextProvider);
   useTitle("My Toy");
-  // console.log(user);
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sorting, setSorting] = useState("asc");
 
   useEffect(() => {
     if (!(user === null)) {
-      // console.log(user?.email);
       fetch(`https://a-11-server-side.vercel.app/mycars?email=${user?.email}&sort=${sorting}`)
         .then((res) => res.json())
         .then((data) => setCars(data));
@@ -27,10 +25,8 @@ const MyToy = () => {
       .then((data) => setCars(data));
     }
   }, [loading, user, sorting]);
-  // console.log(loading);
 
   const handelDeleteCar = (id) => {
-    // console.log(id);
 
     Swal.fire({
       title: "Are you sure?",
@@ -52,17 +48,13 @@ const MyToy = () => {
           .then((res) => res.json())
           .then((data) => {
             setLoading(!loading);
-            console.log(loading);
-            console.log(data);
           });
       }
     });
   };
 
   // Update Toy Codes //
-  // Update Toy Codes //
-  // Update Toy Codes //
-  // Update Toy Codes //
+
   const handleUpdateToy = (event) => {
     event.preventDefault();
 
@@ -80,7 +72,6 @@ const MyToy = () => {
       availableQuantity,
       description,
     };
-    console.log(toy);
 
     fetch(`https://a-11-server-side.vercel.app/updateAItem/${carId}`, {
       method: "PUT",
@@ -92,7 +83,6 @@ const MyToy = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoading(!loading);
-        console.log(data);
       });
   };
 
@@ -103,12 +93,10 @@ const MyToy = () => {
       .then((data) => setSingleCar(data));
   };
 
-  // console.log(singleCar);
   const { availableQuantity, description, name, photoUrl, price, _id } = singleCar;
 
   // Handel Sorting //
   const handelSorting = (sortingMethod) => {
-    // console.log(sorting);
     setSorting(sortingMethod);
   };
 
@@ -267,7 +255,7 @@ const MyToy = () => {
           <tbody>
             {cars.map((car, i) => (
               <>
-                <tr className="hover" key={car._id}>
+                <tr className="hover:bg-cyan-50" key={car._id}>
                   <th>{i + 1}</th>
                   <td>
                     <img src={car.photoUrl} className="w-[200px]" alt="" />

@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import { ContextProvider } from "../AuthProvider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import { ContextProvider } from "../AuthProvider/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
   const { user, loader } = useContext(ContextProvider);
   const location = useLocation();
-  console.log(location);
 
   if (loader) {
     return (

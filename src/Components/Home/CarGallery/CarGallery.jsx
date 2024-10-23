@@ -25,7 +25,6 @@ const CarGallery = () => {
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);
-console.log(cars);
 
   const onInit = useCallback((detail) => {
     if (detail) {

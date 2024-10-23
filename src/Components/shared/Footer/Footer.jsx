@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <div className="footerBg border-t-8 border-t-cyan-950">
-      <footer className="footer p-10 bg-base-200 text-base-content bg-[#08635e66]">
+      <footer className="footer p-10 bg-white text-base-content bg-[#08635e66]">
       <div className="grid grid-cols-2">
     {
       cars.slice(11, 15).map(car => <div className="w-[100px] h-[60px] overflow-hidden" key={car?._id}><img src={car?.photoUrl} className="w-full hover-zoom" alt="" /></div>)

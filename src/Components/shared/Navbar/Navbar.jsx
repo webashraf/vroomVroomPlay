@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ContextProvider } from "../../../AuthProvider/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
+import { ContextProvider } from "../../../AuthProvider/AuthProvider";
 import "./Navba.css";
 
 const Navbar = () => {
@@ -12,7 +12,6 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
 
-  console.log(user);
   const menu = (
     <>
       <NavLink
@@ -74,7 +73,7 @@ const Navbar = () => {
   );
   return (
     <div className="">
-      <div className="navbar bg-base-100 border-b-8 border-b-cyan-950 py-6">
+      <div className="navbar bg-white border-b-8 border-b-cyan-950 py-6">
 
 
 
@@ -100,7 +99,7 @@ const Navbar = () => {
 
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 gap-6 font-semibold z-30"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52 gap-6 font-semibold z-30"
             >
               {menu}
             </ul>
